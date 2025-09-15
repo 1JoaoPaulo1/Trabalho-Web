@@ -16,6 +16,8 @@ class Livro(models.Model):
  nome_autor = models.CharField(max_length=50)
  codigo_livro = models.CharField(max_length=80)
  numero_paginas = models.IntegerField()
+ imagem = models.CharField(max_length=50,blank=True)
+
  def __str__(l):
   return f"{l.nome_livro}"
 
