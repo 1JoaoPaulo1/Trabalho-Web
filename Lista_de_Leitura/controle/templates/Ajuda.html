@@ -16,31 +16,108 @@
     
       <!-- Estilos rápidos -->
       <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 2rem;
+            background: #f9f9f9;
+            border-bottom: 2px solid rgba(0,0,0,0.05);
+        }
+
+        header img {
+            height: 60px;
+        }
+
+        header h1 {
+            color: rgb(58, 65, 128);
+            font-size: 2rem;
+        }
+
         body {
-          margin: 0;
-          font-family: Arial, sans-serif;
-          background-color: #f9f9f9;
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
-        header, footer {
-          padding: 1rem;
-          text-align: center;
-          background: #222;
-          color: #fff;
+
+        .cards-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            margin: 50px auto;
+            width: 80%;
         }
-        main {
-          padding: 2rem;
+
+        .cardlista, .cardbusca {
+            width: 100%;
+            max-width: 600px;
+            padding: 20px;
+            background-color: #f0f0f0;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
+
+        footer {
+            background: #000000;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: auto;
+        }
+
+
       </style>
     </head>
     <body>
     
       <header>
-        <h1>Meu Site</h1>
+        <img src="/Lista_de_Leitura/controle/static/images/ugblogo.png">
+        <h1>Cantinho da Leitura</h1>
       </header>
     
       <main>
-        <h2>Bem-vindo!</h2>
-        <p>Este é o esqueleto inicial do meu site.</p>
+        <div class="cards-container">
+            <div class="cardlista">
+                <h2>🏠 Página Inicial</h2>
+                <p>Ao acessar o site, você verá 3 cards principais:</p>
+                <ul>
+                    <li>Clique em <strong>📚 Minha Lista</strong> para gerenciar os livros que está lendo.</li>
+                    <li>Clique em <strong>🔍 Busca Personalizada</strong> para procurar livros pelo nome ou autor.</li>
+                    <li>Clique em <strong>❓ Ajuda</strong> para consultar instruções sobre o site.</li>
+                </ul>
+            </div>
+
+            <div class="cardlista">
+                <h2>📚 Minha Lista</h2>
+                <p>Nesta página você pode:</p>
+                <ul>
+                    <li>Cadastrar um novo livro clicando no botão "Adicionar Livro".</li>
+                    <li>Informar <strong>nome</strong>, <strong>autor</strong>, <strong>página atual</strong>, <strong>nota</strong> e marcar se já foi <strong>concluído</strong>.</li>
+                    <li>Visualizar todos os livros que você adicionou e acompanhar seu progresso.</li>
+                </ul>
+            </div>
+
+            <div class="cardbusca">
+                <h2>🔍 Busca Personalizada</h2>
+                <p>Nesta página você pode:</p>
+                <ul>
+                    <li>Digitar o nome do livro ou o autor no campo de busca.</li>
+                    <li>Clique em "Buscar" para ver os resultados.</li>
+                    <li>Confira rapidamente o status do livro: <em>em andamento</em> ou <em>concluído</em>, a página atual e a nota.</li>
+                </ul>
+            </div>
+        </div>
+
       </main>
     
       <footer>

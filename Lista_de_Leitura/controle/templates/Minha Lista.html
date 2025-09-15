@@ -16,35 +16,190 @@
     
       <!-- Estilos rápidos -->
       <style>
+         * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-          margin: 0;
-          font-family: Arial, sans-serif;
-          background-color: #f9f9f9;
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
-        header, footer {
-          padding: 1rem;
-          text-align: center;
-          background: #222;
-          color: #fff;
+
+        a {
+            text-decoration: none;
+            color: inherit;
         }
-        main {
-          padding: 2rem;
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 2rem;
+            background: #f9f9f9;
+            border-bottom: 2px solid rgba(0,0,0,0.05);
+        }
+
+        header img {
+            height: 60px;
+        }
+
+        header h1 {
+            color: rgb(58, 65, 128);
+            font-size: 2rem;
+        }
+
+        .welcome {
+            background-color: #000000;
+            text-align: center;
+            padding: 20px;
+            color: #ffffff;
+            font-size: 1.2rem;
+            margin: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .card-container {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            flex-wrap: wrap;
+            margin: 50px;
+        }
+
+        .card {
+            background: #cecccc;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            text-align: center;
+            width: 220px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .cardlista {
+            background: #cecccc;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            text-align: center;
+            width: 220px;
+            margin: 20px;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+        }
+
+        .card h3 {
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+            color: rgb(58, 65, 128);
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: #555;
+        }
+
+        .card a {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 15px;
+            font-size: 1rem;
+            border-radius: 8px;
+            transition: all 0.4s ease;
+            color: #ffffff;
+            cursor: pointer;
+        }
+
+        .lista-btn {
+            background: rgb(200, 50, 60);
+        }
+
+        .lista-btn:hover {
+            background: rgb(200, 50, 60);
+            font-weight: bold;
+            box-shadow: 4px 4px 12px rgba(150, 35, 45, 0.7);
+            transform: translateY(-3px) scale(1.05);
+        }
+
+        .busca-btn {
+            background: rgb(50, 100, 200);
+        }
+
+        .busca-btn:hover {
+            background: rgb(50, 100, 200);
+            font-weight: bold;
+            box-shadow: 4px 4px 12px rgba(35, 70, 140, 0.7);
+            transform: translateY(-3px) scale(1.05);
+        }
+
+        .ajuda-btn {
+            background: rgb(40, 160, 60);
+        }
+
+        .ajuda-btn:hover {
+            background: rgb(40, 160, 60);
+            font-weight: bold;
+            box-shadow: 4px 4px 12px rgba(25, 120, 45, 0.7);
+            transform: translateY(-3px) scale(1.05);
+        }
+
+        footer {
+            background: #000000;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: auto;
+        }
+
+        .card-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
         }
       </style>
     </head>
     <body>
     
       <header>
-        <h1>Meu Site</h1>
+        <img src="/Lista_de_Leitura/controle/static/images/ugblogo.png">
+        <h1>Cantinho da Leitura</h1>
       </header>
     
       <main>
-        <h2>Bem-vindo!</h2>
-        <p>Este é o esqueleto inicial do meu site.</p>
-      </main>
+        <div class="cardlista">
+          <form method="post">
+
+              <label for="id_nome">Nome do Livro 📘</label><br>
+              <input type="text" name="nome" id="id_nome" required><br><br>
+
+              <label for="id_autor">Autor 🤵</label><br>
+              <input type="text" name="autor" id="id_autor" required><br><br>
+
+              <label for="id_pagina_atual">Página Atual 📖</label><br>
+              <input type="number" name="pagina_atual" id="id_pagina_atual" min="0"><br><br>
+
+              <label for="id_nota">Nota 🔟</label><br>
+              <input type="number" name="nota" id="id_nota" min="0" max="10"><br><br>
+
+              <label for="id_concluido">
+              <input type="checkbox" name="concluido" id="id_concluido"> Concluído ✔<br><br>
+              </label>
+
+              <button type="submit">💾 Salvar</button>
+          </form>
+      </div>
+    </main>
     
       <footer>
-        <p>&copy; 2025 - João</p>
+        <p>&copy; 2025 - Joões & Azeitoneta | Contato: contato@cantinhodaleitura.com</p>
       </footer>
     
     </body>
