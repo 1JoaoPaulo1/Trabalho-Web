@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cantinho da Leitura</title>
+
+    <!-- CSS externo -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- JS externo -->
+    <script src="script.js" defer></script>
+
+    <!-- Ícone da aba -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+<style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 2rem;
+            background: #f9f9f9;
+            border-bottom: 2px solid rgba(0,0,0,0.05);
+        }
+
+        header img {
+            height: 60px;
+        }
+
+        header h1 {
+            color: rgb(58, 65, 128);
+            font-size: 2rem;
+        }
+
+        .welcome {
+            background-color: #353434;
+            text-align: center;
+            padding: 20px;
+            color: #ffffff;
+            font-size: 1.2rem;
+            margin: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .card-container {
+            display: flex;
+            justify-content: center;
+            gap: 70px;
+            flex-wrap: wrap;
+            margin: 70px;
+        }
+
+        .card {
+            background: #cecccc;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            text-align: center;
+            width: 220px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+        }
+
+        .card h3 {
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+            color: rgb(58, 65, 128);
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: #555;
+        }
+
+        .card a {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 15px;
+            font-size: 1rem;
+            border-radius: 8px;
+            transition: all 0.4s ease;
+            color: #ffffff;
+            cursor: pointer;
+        }
+
+        .lista-btn {
+            background: rgb(200, 50, 60);
+        }
+
+        .lista-btn:hover {
+            background: rgb(200, 50, 60);
+            font-weight: bold;
+            box-shadow: 4px 4px 12px rgba(150, 35, 45, 0.7);
+            transform: translateY(-3px) scale(1.05);
+        }
+
+        .busca-btn {
+            background: rgb(50, 100, 200);
+        }
+
+        .busca-btn:hover {
+            background: rgb(50, 100, 200);
+            font-weight: bold;
+            box-shadow: 4px 4px 12px rgba(35, 70, 140, 0.7);
+            transform: translateY(-3px) scale(1.05);
+        }
+
+        .ajuda-btn {
+            background: rgb(40, 160, 60);
+        }
+
+        .ajuda-btn:hover {
+            background: rgb(40, 160, 60);
+            font-weight: bold;
+            box-shadow: 4px 4px 12px rgba(25, 120, 45, 0.7);
+            transform: translateY(-3px) scale(1.05);
+        }
+
+        footer {
+            background: #353434;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: auto;
+        }
+
+        .card-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+</style>
+
+</head>
+<body>
+
+    <header>
+        <img src="ugblogo.png">
+        <h1>Cantinho da Leitura</h1>
+    </header>
+
+<main>
+
+    <div class="welcome">
+        <p>Bem-vindo ao Cantinho da Leitura!<br><br>
+        Aqui você pode registrar os livros que está lendo no momento. Assim, fica mais fácil organizar seus estudos e manter um ritmo constante nas suas leituras.</p>
+    </div>
+
+    <div class="card-container">
+
+        <div class="card">
+            <div class="card-icon">📚</div>
+            <h3>Minha Lista</h3>
+            <p>Veja e gerencie os livros que você está lendo no momento.</p>
+            <a class="lista-btn" href="Minha Lista.html" target="_blank">Acessar</a>
+        </div>
+
+        <div class="card">
+            <div class="card-icon">🔍</div>
+            <h3>Busca Personalizada</h3>
+            <p>Encontre livros por título, autor ou gênero de forma rápida.</p>
+            <a class="busca-btn" href="Busca.html" target="_blank">Pesquisar</a>
+        </div>
+
+        <div class="card">
+            <div class="card-icon">❓</div>
+            <h3>Ajuda</h3>
+            <p>Precisa de orientação? Veja dicas e instruções de uso.</p>
+            <a class="ajuda-btn" href="Ajuda.html" target="_blank">Saiba Mais</a>
+        </div>
+
+    </div>
+
+</main>
+
+<footer>
+    <p>&copy; 2025 - Joões & Azeitona | Contato: contato@cantinhodaleitura.com</p>
+</footer>
+
+</body>
+</html>
+
+
