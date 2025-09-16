@@ -1,22 +1,13 @@
-    <!DOCTYPE html>
-    <html lang="pt-br">
-    <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title></title>
-    
-      <!-- CSS externo -->
-      <link rel="stylesheet" href="style.css">
-    
-      <!-- JS externo -->
-      <script src="script.js" defer></script>
-    
-      <!-- Ícone da aba -->
-      <link rel="icon" href="favicon.ico" type="image/x-icon">
-    
-      <!-- Estilos rápidos -->
-      <style>
-         * {
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cantinho da Leitura</title>
+
+<style>
+
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -80,16 +71,6 @@
             text-align: center;
             width: 220px;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .cardlista {
-            background: #cecccc;
-            padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            text-align: center;
-            width: 220px;
-            margin: 20px;
         }
 
         .card:hover {
@@ -164,43 +145,56 @@
             font-size: 2rem;
             margin-bottom: 10px;
         }
-      </style>
-    </head>
-    <body>
-    
-      <header>
-        <img src="/Lista_de_Leitura/controle/static/images/ugblogo.png">
+
+</style>
+
+</head>
+<body>
+
+    <header>
+        <img src="/static/images/ugblogo.png">
         <h1>Cantinho da Leitura</h1>
-      </header>
-    
-      <main>
-        <div class="cardlista">
-          <form method="post">
+    </header>
 
-              <label for="id_nome">Nome do Livro 📘</label><br>
-              <input type="text" name="nome" id="id_nome" required><br><br>
+<main>
 
-              <label for="id_autor">Autor 🤵</label><br>
-              <input type="text" name="autor" id="id_autor" required><br><br>
+    <div class="welcome">
+        <p>Bem-vindo ao Cantinho da Leitura!<br><br>
+        Aqui você pode registrar os livros que está lendo no momento. Assim, fica mais fácil organizar seus estudos e manter um ritmo constante nas suas leituras.</p>
+    </div>
 
-              <label for="id_pagina_atual">Página Atual 📖</label><br>
-              <input type="number" name="pagina_atual" id="id_pagina_atual" min="0"><br><br>
+    <div class="card-container">
 
-              <label for="id_nota">Nota 🔟</label><br>
-              <input type="number" name="nota" id="id_nota" min="0" max="10"><br><br>
+        <div class="card">
+            <div class="card-icon">📚</div>
+            <h3>Minha Lista</h3>
+            <p>Veja e gerencie os livros que você está lendo no momento.</p>
+            <a class="lista-btn" href="Minha Lista.html" target="_blank">Acessar</a>
+        </div>
 
-              <label for="id_concluido">
-              <input type="checkbox" name="concluido" id="id_concluido"> Concluído ✔<br><br>
-              </label>
+        <div class="card">
+            <div class="card-icon">🔍</div>
+            <h3>Busca Personalizada</h3>
+            <p>Encontre livros por título, autor ou gênero de forma rápida.</p>
+            <a class="busca-btn" href="Busca.html" target="_blank">Pesquisar</a>
+        </div>
 
-              <button type="submit">💾 Salvar</button>
-          </form>
-      </div>
-    </main>
-    
-      <footer>
-        <p>&copy; 2025 - Joões & Azeitoneta | Contato: contato@cantinhodaleitura.com</p>
-      </footer>
-    
-    </body>
-    </html>
+        <div class="card">
+            <div class="card-icon">❓</div>
+            <h3>Ajuda</h3>
+            <p>Precisa de orientação? Veja dicas e instruções de uso.</p>
+            <a class="ajuda-btn" href="Ajuda.html" target="_blank">Saiba Mais</a>
+        </div>
+
+    </div>
+
+</main>
+
+<footer>
+    <p>&copy; 2025 - Joões & Azeitona | Contato: contato@cantinhodaleitura.com</p>
+</footer>
+
+</body>
+</html>
+
+

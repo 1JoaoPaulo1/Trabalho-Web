@@ -4,15 +4,7 @@
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title></title>
-    
-      <!-- CSS externo -->
-      <link rel="stylesheet" href="style.css">
-    
-      <!-- JS externo -->
-      <script src="script.js" defer></script>
-    
-      <!-- Ícone da aba -->
-      <link rel="icon" href="favicon.ico" type="image/x-icon">
+   
     
       <style>
 
@@ -121,9 +113,13 @@
       </style>
     </head>
     <body>
-    
+
       <header>
+<<<<<<< HEAD:Lista_de_Leitura/controle/templates/Login.html
         <img src="/static/images/ugblogo.png">
+=======
+        <img src="static/images/ugblogo.png">
+>>>>>>> db3a3bd7ef17cb946ec7ec07e160b85ecadcfd31:Lista_de_Leitura/controle/templates/sites/Login.html
         <h1>Cantinho da Leitura</h1>
       </header>
     
@@ -133,11 +129,16 @@
           <div class="card">
               <div class="card-icon">👤</div>
               <h3>Login</h3>
-              <label for="usuario">Matrícula:</label><br>
-              <input type="text" id="usuario" name="usuario" placeholder="Digite sua matrícula"><br><br>
+
+<form method="POST">
+{% csrf_token %}
+<label for="usuario">Matrícula:</label><br>
+              <input type="text" id="matricula" name="matricula" placeholder="Digite sua matrícula"><br><br>
               <label for="senha">Senha:</label><br>
               <input type="password" id="senha" name="senha" placeholder="Digite sua senha"><br><br>
+
               <button type="submit">Entrar</button>
+</form>
           </div>
         </div>
 
