@@ -4,15 +4,7 @@
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title></title>
-    
-      <!-- CSS externo -->
-      <link rel="stylesheet" href="style.css">
-    
-      <!-- JS externo -->
-      <script src="script.js" defer></script>
-    
-      <!-- Ícone da aba -->
-      <link rel="icon" href="favicon.ico" type="image/x-icon">
+   
     
       <style>
 
@@ -36,7 +28,7 @@
             background: white;
             padding: 40px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-            background-image: url(/Lista_de_Leitura/controle/static/images/biblioteca.png);
+            background-image: url(/static/images/biblioteca.png);
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -121,9 +113,9 @@
       </style>
     </head>
     <body>
-    
+
       <header>
-        <img src="/Lista_de_Leitura/controle/static/images/ugblogo.png">
+        <img src="static/images/ugblogo.png">
         <h1>Cantinho da Leitura</h1>
       </header>
     
@@ -133,11 +125,16 @@
           <div class="card">
               <div class="card-icon">👤</div>
               <h3>Login</h3>
-              <label for="usuario">Matrícula:</label><br>
-              <input type="text" id="usuario" name="usuario" placeholder="Digite sua matrícula"><br><br>
+
+<form method="POST">
+{% csrf_token %}
+<label for="usuario">Matrícula:</label><br>
+              <input type="text" id="matricula" name="matricula" placeholder="Digite sua matrícula"><br><br>
               <label for="senha">Senha:</label><br>
               <input type="password" id="senha" name="senha" placeholder="Digite sua senha"><br><br>
+
               <button type="submit">Entrar</button>
+</form>
           </div>
         </div>
 

@@ -4,7 +4,7 @@ from django.db import models
 
 class Pessoa(models.Model):
  id_pessoa = models.AutoField(primary_key=True)
- matricula = models.CharField(max_length=10)
+ matricula = models.CharField(max_length=10,unique=True)
  senha = models.CharField(max_length=3)
  curso = models.CharField(max_length=30)
  def __str__(p):
