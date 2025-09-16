@@ -94,28 +94,44 @@ def minha_lista(request):
  if len(logado) == 1:
   if request.method == "GET":
    logado = Logado.objects.get(logado=True)
-   leitura = Leitura.objects.filter(pessoa = logado.pessoa)
+   leitura = Leitura.objects.filter(pessoa = logado.pessoa).order_by(id_leitura)
+   nota = Nota.objects.filter(id_leitura = leitura.id_leitura).order_by(id_leitura)
   
 
-   return render(request,"sites/Minha Lista.html",{"leitura":leitura})
+   return render(request,"sites/Minha Lista.html",{"leitura":leitura},{"nota":nota})
   else:
    if request.method =="POST":
     valores = (request.POST)
     leitura = Leitura.objects.get(id_leitura=valores["identificar"])
     livro = Livro.objects.get(id_livro = leitura.livro.id_livro)
-    if int(valores["pagina_atual"]) >= 0 and int(valores["pagina_atual"]) <= livro.numero_paginas:
+    if int(valores["pagina_atual"]) >= 0 and int(valores["pagina_atual"]) <= livro.numero_paginas and int(valores["nota"])>= 0 and int(valores["nota"])<=5:
      leitura.pagina_atual = valores["pagina_atual"]
      leitura.save()
-     logado = Logado.objects.get(logado=True)
-     leitura = Leitura.objects.filter(pessoa = logado.pessoa)
-     return render(request,"sites/Minha Lista.html",{"leitura":leitura})
+     Ler = Leitura.objects.get(id_leitura=valores["identificar"])
+     if len(Nota.objects.filter(leitura=Ler)) == 1:
+      nota = Nota.objects.get(leitura=Ler)
+      nota.nota = int(valores["nota"])
+      nota.save()
+      logado = Logado.objects.get(logado=True)
+      leitura = Leitura.objects.filter(pessoa = logado.pessoa).order_by(leitura.id_leitura)
+      nota = Nota.objects.filter(id_leitura = leitura.id_leitura).order_by(leitura.id_leitura)
+      return render(request,"sites/Minha Lista.html",{"leitura":leitura},{"nota":nota})
+     else:
+      Ler = Leitura.objects.get(id_leitura=valores["identificar"])
+      Registro = Nota(leitura = Ler, nota =int(valores["nota"]))
+      Registro.save()
+      logado = Logado.objects.get(logado=True)
+      leitura = Leitura.objects.filter(pessoa = logado.pessoa).order_by(id_leitura)
+      nota = Nota.objects.filter(id_leitura = leitura.id_leitura).order_by(id_leitura)
+      return render(request,"sites/Minha Lista.html",{"leitura":leitura},{"nota":nota})      
     else:
      logado = Logado.objects.filter(logado=True)
      if len(logado) == 1:
       if request.method == "GET":
        logado = Logado.objects.get(logado=True)
-       leitura = Leitura.objects.filter(pessoa = logado.pessoa)
-       return render(request,"sites/Minha Lista.html",{"leitura":leitura})
+       leitura = Leitura.objects.filter(pessoa = logado.pessoa).order_by(id_leitura)
+       nota = Nota.objects.filter(id_leitura = leitura.id_leitura).order_by(id_leitura)
+       return render(request,"sites/Minha Lista.html",{"leitura":leitura},{"nota":nota})
      else:
       logado = Logado.objects.all()
       for i in logado:

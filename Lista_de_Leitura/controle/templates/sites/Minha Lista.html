@@ -169,6 +169,7 @@
 
 
 {% for i in leitura %}
+{% for z in nota %}
 <div class="cardlista">
 <form method="POST">
 
@@ -182,7 +183,12 @@
 
               <label for="id_pagina_atual">Página Atual 📖</label><br>
               <input type="number" name="pagina_atual" id="id_pagina_atual" min="0" max="{{i.livro.numero_paginas}}" value={{i.pagina_atual}}><br><br>
+              <label for="id_nota">Nota</label><br>
+              <input type="number" name="nota" id="nota" min="0" max="5" value={{z.nota}}><br><br>
+
+
 <input type="hidden" name="identificar" value={{i.id_leitura}}>
+
               <button type="submit">💾 Salvar</button>
           </form>
           </div>
