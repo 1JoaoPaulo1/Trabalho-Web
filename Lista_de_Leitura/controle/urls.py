@@ -20,5 +20,11 @@ from . import views
 
 urlpatterns = [
     path('',views.login, name = "login"),
-    path('/cadastro',views.cadastro, name="cadastro")
+    path('cadastro/',views.cadastro, name="cadastro"),
+    path('Cantinho_da_Leitura/',views.centro, name="centro"),
+    path('ajuda/',views.ajuda, name="ajuda"),
+    path('busca/',views.busca,name="busca"),
+    path('minha_lista/',views.minha_lista,name="busca")
+
+
 ]

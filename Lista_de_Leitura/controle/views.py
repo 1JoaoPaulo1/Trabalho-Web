@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from .models import Pessoa,Livro,Leitura,Nota,Logado
+from .models import Pessoa,Livro,Leitura,Logado
 
 # Create your views here.
 def login(request):
@@ -17,7 +17,7 @@ def login(request):
      online = Logado.objects.get(pessoa = p)
      online.logado = True
      online.save()
-     return render(request,"sites/Login.html")
+     return redirect("centro")
     else:
      l = Logado(pessoa = p,logado = False)
      l.save()
@@ -25,14 +25,13 @@ def login(request):
      online = Logado.objects.get(pessoa = p)
      online.logado = True
      online.save()     
-     return render(request,"sites/Login.html")
-
+     return redirect("centro")
      
    else:
     return render(request,"sites/Login.html")
 
   else:
-   logado = Logado.objects.all()
+   logado = Logado.objects.all() 
    for i in logado:
     i.logado = False
     i.save()
@@ -51,4 +50,103 @@ def cadastro(request):
  else:
   return render(request,"sites/Cadastro.html")
 
- 
+
+def centro(request):
+ logado = Logado.objects.filter(logado=True)
+ if len(logado) == 1:
+  return render(request,"sites/Cantinho da Leitura.html")
+ else:
+  logado = Logado.objects.all()
+  for i in logado:
+   i.logado = False
+   i.save()
+  return render(request,"sites/Login.html")  
+
+def ajuda(request):
+ logado = Logado.objects.filter(logado=True)
+ if len(logado) == 1:
+  return render(request,"sites/Ajuda.html")
+ else:
+  logado = Logado.objects.all()
+  for i in logado:
+   i.logado = False
+   i.save()
+  return render(request,"sites/Login.html")
+
+
+def busca(request):
+ logado = Logado.objects.filter(logado=True)
+ if len(logado) == 1:
+  logado = Logado.objects.get(logado=True)
+  livro = Livro.objects.all()
+  return render(request,"sites/Busca.html",{"livro":livro})
+  if request.method =="POST":
+   buscar = (request.POST)
+   return render(request,"sites/Busca.html",{"livro":livro})
+
+  else:
+   livro = Livro.objects.all()
+   return render(request,"sites/Busca.html",{"livro":livro})
+
+ else:
+  logado = Logado.objects.all()
+  for i in logado:
+   i.logado = False
+   i.save()
+  return render(request,"sites/Login.html")
+
+
+
+
+
+
+
+
+def minha_lista(request):
+ logado = Logado.objects.filter(logado=True)
+ if len(logado) == 1:
+  if request.method == "GET":
+   logado = Logado.objects.get(logado=True)
+   leitura = Leitura.objects.filter(pessoa = logado.pessoa).order_by("id_leitura")
+  
+
+   return render(request,"sites/Minha Lista.html",{"leitura":leitura})
+  else:
+   if request.method =="POST":
+    valores = (request.POST)
+    leitura = Leitura.objects.get(id_leitura=valores["identificar"])
+    livro = Livro.objects.get(id_livro = leitura.livro.id_livro)
+    if int(valores["pagina_atual"]) >= 0 and int(valores["pagina_atual"]) <= livro.numero_paginas and int(valores["nota"])>= 0 and int(valores["nota"])<=5:
+     leitura.pagina_atual = valores["pagina_atual"]
+     leitura.save()
+     Ler = Leitura.objects.get(id_leitura=valores["identificar"])
+     Ler.nota = int(valores["nota"])
+     Ler.save()
+     logado = Logado.objects.get(logado=True)
+     leitura = Leitura.objects.filter(pessoa = logado.pessoa).order_by("id_leitura")
+     return render(request,"sites/Minha Lista.html",{"leitura":leitura})
+    
+    else:
+     logado = Logado.objects.filter(logado=True)
+     if len(logado) == 1:
+      if request.method == "GET":
+       logado = Logado.objects.get(logado=True)
+       leitura = Leitura.objects.filter(pessoa = logado.pessoa).order_by("id_leitura")
+  
+       return render(request,"sites/Minha Lista.html",{"leitura":leitura})
+     else:
+      logado = Logado.objects.all()
+      for i in logado:
+       i.logado = False
+       i.save()
+      return render(request,"sites/Login.html")
+
+
+
+ else:
+  logado = Logado.objects.all()
+  for i in logado:
+   i.logado = False
+   i.save()
+  return render(request,"sites/Login.html")
+
