@@ -115,11 +115,7 @@
     <body>
 
       <header>
-<<<<<<< HEAD:Lista_de_Leitura/controle/templates/Login.html
         <img src="/static/images/ugblogo.png">
-=======
-        <img src="static/images/ugblogo.png">
->>>>>>> db3a3bd7ef17cb946ec7ec07e160b85ecadcfd31:Lista_de_Leitura/controle/templates/sites/Login.html
         <h1>Cantinho da Leitura</h1>
       </header>
     
@@ -130,15 +126,13 @@
               <div class="card-icon">👤</div>
               <h3>Login</h3>
 
-<form method="POST">
-{% csrf_token %}
-<label for="usuario">Matrícula:</label><br>
-              <input type="text" id="matricula" name="matricula" placeholder="Digite sua matrícula"><br><br>
-              <label for="senha">Senha:</label><br>
-              <input type="password" id="senha" name="senha" placeholder="Digite sua senha"><br><br>
-
-              <button type="submit">Entrar</button>
-</form>
+        <form method="POST">
+            <label for="usuario">Matrícula:</label><br>
+            <input type="text" id="matricula" name="matricula" placeholder="Digite sua matrícula"><br><br>
+            <label for="senha">Senha:</label><br>
+            <input type="password" id="senha" name="senha" placeholder="Digite sua senha"><br><br>
+            <button type="submit">Entrar</button>
+        </form>
           </div>
         </div>
 
