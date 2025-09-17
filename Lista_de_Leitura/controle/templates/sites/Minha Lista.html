@@ -1,215 +1,229 @@
-    <!DOCTYPE html>
-    <html lang="pt-br">
-    <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title></title>
-    
-      <!-- Estilos rápidos -->
-      <style>
-         * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minha Lista - Cantinho da Leitura</title>
 
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f9f9f9;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
+    body {
+      font-family: Arial, sans-serif;
+      background: #f1f1f1;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
 
-        header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 1rem 2rem;
-            background: #f9f9f9;
-            border-bottom: 2px solid rgba(0,0,0,0.05);
-        }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
-        header img {
-            height: 60px;
-        }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+      background: #fff;
+      border-bottom: 2px solid #df8d13;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
 
-        header h1 {
-            color: rgb(58, 65, 128);
-            font-size: 2rem;
-        }
+    header img {
+      height: 60px;
+    }
 
-        .welcome {
-            background-color: #000000;
-            text-align: center;
-            padding: 20px;
-            color: #ffffff;
-            font-size: 1.2rem;
-            margin: 20px;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-        }
+    header h1 {
+      color: rgb(58, 65, 128);
+      font-size: 2rem;
+    }
 
-        .card-container {
-            display: flex;
-            justify-content: center;
-            gap: 50px;
-            flex-wrap: wrap;
-            margin: 50px;
-        }
+    main {
+      flex: 1;
+      max-width: 1200px;
+      margin: 30px auto;
+      padding: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
 
-        .card {
-            background: #cecccc;
-            padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            text-align: center;
-            width: 220px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
+    .cardlista {
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      text-align: center;
+      width: 280px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
 
-        .cardlista {
-            background: #cecccc;
-            padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            text-align: center;
-            width: 220px;
-            margin: 20px;
-        }
+    .cardlista:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    }
 
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 12px 40px rgba(0,0,0,0.3);
-        }
+    .cardlista h2 {
+      margin: 10px 0;
+      color: rgb(58, 65, 128);
+    }
 
-        .card h3 {
-            margin-bottom: 10px;
-            font-size: 1.3rem;
-            color: rgb(58, 65, 128);
-        }
+    .cardlista label {
+      display: block;
+      font-weight: bold;
+      margin: 10px 0 5px;
+      text-align: left;
+    }
 
-        .card p {
-            font-size: 0.95rem;
-            color: #555;
-        }
+    .cardlista p {
+      margin-bottom: 10px;
+      color: #555;
+    }
 
-        .card a {
-            display: inline-block;
-            margin-top: 15px;
-            padding: 10px 15px;
-            font-size: 1rem;
-            border-radius: 8px;
-            transition: all 0.4s ease;
-            color: #ffffff;
-            cursor: pointer;
-        }
+    .cardlista input {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+      margin-bottom: 15px;
+    }
 
-        .lista-btn {
-            background: rgb(200, 50, 60);
-        }
+    .cardlista input:focus {
+      border-color: rgb(58, 65, 128);
+      outline: none;
+      box-shadow: 0 0 6px rgba(58, 65, 128, 0.4);
+    }
 
-        .lista-btn:hover {
-            background: rgb(200, 50, 60);
-            font-weight: bold;
-            box-shadow: 4px 4px 12px rgba(150, 35, 45, 0.7);
-            transform: translateY(-3px) scale(1.05);
-        }
+    .cardlista button {
+      width: 100%;
+      padding: 10px;
+      background: rgb(58, 65, 128);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
 
-        .busca-btn {
-            background: rgb(50, 100, 200);
-        }
+    .cardlista button:hover {
+      background: rgb(40, 45, 90);
+    }
 
-        .busca-btn:hover {
-            background: rgb(50, 100, 200);
-            font-weight: bold;
-            box-shadow: 4px 4px 12px rgba(35, 70, 140, 0.7);
-            transform: translateY(-3px) scale(1.05);
-        }
+    /* Botão flutuante de adicionar */
+    .add-btn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 60px;
+      height: 60px;
+      background: rgb(40, 160, 60);
+      color: #fff;
+      font-size: 2rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
 
-        .ajuda-btn {
-            background: rgb(40, 160, 60);
-        }
+    .add-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+    }
 
-        .ajuda-btn:hover {
-            background: rgb(40, 160, 60);
-            font-weight: bold;
-            box-shadow: 4px 4px 12px rgba(25, 120, 45, 0.7);
-            transform: translateY(-3px) scale(1.05);
-        }
+    /* Botão de remover dentro do card */
+    .remove-btn {
+      margin-top: 10px;
+      background: rgb(200, 50, 60);
+      color: #fff;
+      border: none;
+      padding: 8px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s;
+      width: 100%;
+    }
 
-        footer {
-            background: #000000;
-            color: white;
-            text-align: center;
-            padding: 20px;
-            margin-top: auto;
-            font-size: 0.9rem;
-            border-top: 2px solid #df8d13;
-        }
+    .remove-btn:hover {
+      background: rgb(160, 30, 40);
+    }
 
-        footer a {
-            color: #4dabf7;
-            text-decoration: none;
-        }
+    footer {
+      background: #000000;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: auto;
+      font-size: 0.9rem;
+      border-top: 2px solid #df8d13;
+    }
 
-        footer a:hover {
-            text-decoration: underline;
-        }
+    footer a {
+      color: #4dabf7;
+      text-decoration: none;
+    }
 
-        .card-icon {
-            font-size: 2rem;
-            margin-bottom: 10px;
-        }
-      </style>
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
 
-    </head>
-    <body>
-    
-      <header>
-        <img src="/static/images/ugblogo.png">
-        <h1>Cantinho da Leitura</h1>
-      </header>
-    
-      <main>
+  <header>
+    <img src="/controle/static/images/ugblogo.png" alt="Logo UGB">
+    <h1>Cantinho da Leitura</h1>
+  </header>
 
+  <main>
+    {% for i in leitura %}
+      <div class="cardlista">
+        <form method="POST">
+          {% csrf_token %}
+          
+          <label>Nome do Livro 📘</label>
+          <h2>{{ i.livro.nome_livro }}</h2>
 
-{% for i in leitura %}
-<div class="cardlista">
-<form method="POST">
+          <label>Autor(es) 🤵</label>
+          <p>{{ i.livro.nome_autor }}</p>
 
-{% csrf_token %}
+          <label>Página Atual 📖</label>
+          <input type="number" name="pagina_atual" min="0" max="{{ i.livro.numero_paginas }}" value="{{ i.pagina_atual }}">
 
-              <label for="id_nome">Nome do Livro 📘</label><br>
-              <h2>{{ i.livro.nome_livro}}</h2><br><br>
+          <label>Nota ⭐</label>
+          <input type="number" name="nota" min="0" max="5" value="{{ i.nota }}">
 
-              <label for="id_autor">Autor(es) 🤵</label><br>
-              <p>{{i.livro.nome_autor}}</p><br><br>
+          <input type="hidden" name="identificar" value="{{ i.id_leitura }}">
+          
+          <button type="submit">💾 Salvar</button>
+        </form>
+        <form method="POST" style="margin-top:10px;">
+          {% csrf_token %}
+          <input type="hidden" name="remover" value="{{ i.id_leitura }}">
+          <button type="submit" class="remove-btn">🗑️ Remover</button>
+        </form>
+      </div>
+    {% endfor %}
+  </main>
 
-              <label for="id_pagina_atual">Página Atual 📖</label><br>
-              <input type="number" name="pagina_atual" id="id_pagina_atual" min="0" max="{{i.livro.numero_paginas}}" value={{i.pagina_atual}}><br><br>
-              <label for="id_nota">Nota</label><br>
-              <input type="number" name="nota" id="nota" min="0" max="5" value={{i.nota}}><br><br>
+  <!-- Botão para adicionar novo livro -->
+  <button class="add-btn" title="Adicionar Livro">+</button>
 
+  <footer>
+    <p>&copy; 2025 - Joões & Azeitoneta | 
+      Contato: <a href="mailto:contato@cantinhodaleitura.com">contato@cantinhodaleitura.com</a>
+    </p>
+  </footer>
 
-
-<input type="hidden" name="identificar" value={{i.id_leitura}}>
-
-              <button type="submit">💾 Salvar</button>
-          </form>
-          </div>
-
-{% endfor %}
-    </main>
-    
-      <footer>
-        <p>&copy; 2025 - Joões & Azeitoneta | Contato: contato@cantinhodaleitura.com</p>
-      </footer>
-    
-    </body>
-    </html>
+</body>
+</html>

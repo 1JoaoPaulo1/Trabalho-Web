@@ -15,7 +15,7 @@
 
         body {
             font-family: Arial, sans-serif;
-            background-color: #f9f9f9;
+            background-color: rgb(58, 65, 128);
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -32,7 +32,7 @@
             justify-content: space-between;
             padding: 1rem 2rem;
             background: #f9f9f9;
-            border-bottom: 2px solid rgba(216, 154, 19, 0.05);
+            border-bottom: 2px solid #df8d13;
         }
 
         header img {
@@ -64,13 +64,14 @@
         }
 
         .card {
-            background: #cecccc;
+            background: #ffffff;
             padding: 20px;
             border-radius: 12px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
             text-align: center;
             width: 220px;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 2px solid #df8d13;
         }
 
         .card:hover {
@@ -106,7 +107,6 @@
 
         .lista-btn:hover {
             background: rgb(200, 50, 60);
-            font-weight: bold;
             box-shadow: 4px 4px 12px rgba(150, 35, 45, 0.7);
             transform: translateY(-3px) scale(1.05);
         }
@@ -116,8 +116,7 @@
         }
 
         .busca-btn:hover {
-            background: rgb(50, 100, 200);
-            font-weight: bold;
+            background: rgb(50, 100, 200)
             box-shadow: 4px 4px 12px rgba(35, 70, 140, 0.7);
             transform: translateY(-3px) scale(1.05);
         }
@@ -128,7 +127,6 @@
 
         .ajuda-btn:hover {
             background: rgb(40, 160, 60);
-            font-weight: bold;
             box-shadow: 4px 4px 12px rgba(25, 120, 45, 0.7);
             transform: translateY(-3px) scale(1.05);
         }
@@ -137,8 +135,19 @@
             background: #000000;
             color: white;
             text-align: center;
-            padding: 30px;
+            padding: 20px;
             margin-top: auto;
+            font-size: 0.9rem;
+            border-top: 2px solid #df8d13;
+        }
+
+        footer a {
+            color: #4dabf7;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
         }
 
         .card-icon {
@@ -152,7 +161,7 @@
 <body>
 
     <header>
-        <img src="/static/images/ugblogo.png">
+        <img src="/controle/static/images/ugblogo.png">
         <h1>Cantinho da Leitura</h1>
     </header>
 
@@ -191,8 +200,10 @@
 </main>
 
 <footer>
-    <p>&copy; 2025 - Joões & Azeitona | Contato: contato@cantinhodaleitura.com</p>
-</footer>
+    <p>&copy; 2025 - Joões & Azeitoneta | 
+       Contato: <a href="mailto:contato@cantinhodaleitura.com">contato@cantinhodaleitura.com</a>
+    </p>
+  </footer>
 
 </body>
 </html>
