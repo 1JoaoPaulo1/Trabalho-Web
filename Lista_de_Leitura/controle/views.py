@@ -80,13 +80,26 @@ def busca(request):
   logado = Logado.objects.get(logado=True)
   livro = Livro.objects.all()
   return render(request,"sites/Busca.html",{"livro":livro})
-  
+  if request.method =="POST":
+   buscar = (request.POST)
+   return render(request,"sites/Busca.html",{"livro":livro})
+
+  else:
+   livro = Livro.objects.all()
+   return render(request,"sites/Busca.html",{"livro":livro})
+
  else:
   logado = Logado.objects.all()
   for i in logado:
    i.logado = False
    i.save()
   return render(request,"sites/Login.html")
+
+
+
+
+
+
 
 
 def minha_lista(request):
