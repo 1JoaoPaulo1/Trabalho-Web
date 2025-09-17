@@ -1,153 +1,191 @@
-    <!DOCTYPE html>
-    <html lang="pt-br">
-    <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title></title>
-    
-      <!-- CSS externo -->
-      <link rel="stylesheet" href="style.css">
-    
-      <!-- JS externo -->
-      <script src="script.js" defer></script>
-    
-      <!-- Ícone da aba -->
-      <link rel="icon" href="favicon.ico" type="image/x-icon">
-    
-      <style>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro - Cantinho da Leitura</title>
 
-          * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <!-- CSS externo -->
+  <link rel="stylesheet" href="style.css">
 
-        body {
-            font-family: Arial, sans-serif;
-            background-color: rgb(58, 65, 128);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
+  <!-- JS externo -->
+  <script src="script.js" defer></script>
 
-        main {
-            max-width: 900px;
-            margin: 0 auto;
-            background: white;
-            padding: 40px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-            background-image: url(/controle/static/images/biblioteca.png);
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
+  <!-- Ícone da aba -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
 
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 1rem 2rem;
-            background: #f9f9f9;
-            border-bottom: 2px solid rgba(0,0,0,0.05);
-        }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: rgb(58, 65, 128);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
 
-        header img {
-            height: 60px;
-        }
+    main {
+      flex: 1;
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 120px;
+      position: relative;
+      background-image: url(/controle/static/images/biblioteca.png);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      border-radius: 12px;
+      box-shadow: 15px 15px 30px rgba(0,0,0,0.5);
+    }
 
-        header h1 {
-            color: rgb(58, 65, 128);
-            font-size: 2rem;
-        }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
-        .card-container {
-            display: flex;
-            justify-content: center;
-            gap: 70px;
-            flex-wrap: wrap;
-            margin: 174.5px;
-        }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+      background: #f9f9f9;
+      border-bottom: 2px solid #df8d13;
+    }
 
-        .card {
-            background: #ffffff;
-            padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            text-align: center;
-            width: 500px;
-            height: 340px;
-        }
+    header img {
+      height: 60px;
+    }
 
-        .card h3 {
-            margin-bottom: 10px;
-            font-size: 1.5rem;
-            color: rgb(58, 65, 128);
-        }
+    header h1 {
+      color: rgb(58, 65, 128);
+      font-size: 2rem;
+    }
 
-        .card a {
-            display: inline-block;
-            margin-top: 15px;
-            padding: 10px 15px;
-            font-size: 1rem;
-            border-radius: 8px;
-            transition: all 0.4s ease;
-            color: #fff;
-            cursor: pointer;
-        }
+    .card-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
 
-        footer {
-            background: #000000;
-            color: white;
-            text-align: center;
-            padding: 30px;
-            margin-top: auto;
-        }
+    .card {
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      text-align: center;
+      width: 100%;
+      max-width: 400px;
+    }
 
-        .card-icon {
-            font-size: 2rem;
-            margin-bottom: 10px;
-        }
+    .card h2 {
+      margin-bottom: 20px;
+      color: rgb(58, 65, 128);
+    }
 
-        label{
-            font-size: 1.2rem;
-            font-weight: bold;
-        }
+    .card-icon {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
 
-      </style>
-    </head>
-    <body>
-    
-      <header>
-        <img src="/controle/static/images/ugblogo.png">
-        <h1>Cantinho da Leitura</h1>
-      </header>
-    
-      <main>
+    label {
+      display: block;
+      font-size: 1rem;
+      font-weight: bold;
+      margin: 10px 0 5px;
+      text-align: left;
+    }
 
-        <div class="card-container">
-          <div class="card">
-              <div class="card-icon">👤</div>
-              <h3>Cadastro</h3>
-              <label for="usuario">Matrícula:</label><br>
-              <input type="text" id="usuario" name="usuario" placeholder="Digite sua matrícula"><br><br>
-              <label for="senha">Senha:</label><br>
-              <input type="password" id="senha" name="senha" placeholder="Digite sua senha"><br><br>
-              <label for="curso">Curso:</label><br>
-              <input type="text" id="curso" name="curso" placeholder="Digite o seu curso"><br><br>
-              <button type="submit">Entrar</button>
-          </div>
-        </div>
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
 
-      </main>
-    
-      <footer>
-        <p>&copy; 2025 - Joões & Azeitoneta | Contato: contato@cantinhodaleitura.com</p>
-      </footer>
-    
-    </body>
-    </html>
+    input:focus {
+      border-color: rgb(58, 65, 128);
+      outline: none;
+      box-shadow: 0 0 6px rgba(58, 65, 128, 0.4);
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background: rgb(58, 65, 128);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: rgb(40, 45, 90);
+    }
+
+    footer {
+      background: #000000;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: auto;
+      font-size: 0.9rem;
+      border-top: 2px solid #df8d13;
+    }
+
+    footer a {
+      color: #4dabf7;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="/controle/static/images/ugblogo.png" alt="Logo UGB">
+    <h1>Cantinho da Leitura</h1>
+  </header>
+
+  <main>
+    <div class="card-container">
+      <div class="card">
+        <div class="card-icon">👤</div>
+        <h2>Cadastro de Usuário</h2>
+        <form>
+          <label for="usuario">Matrícula:</label>
+          <input type="text" id="usuario" name="usuario" placeholder="Digite sua matrícula">
+
+          <label for="senha">Senha:</label>
+          <input type="password" id="senha" name="senha" placeholder="Digite sua senha">
+
+          <label for="curso">Curso:</label>
+          <input type="text" id="curso" name="curso" placeholder="Digite o seu curso">
+
+          <button type="submit">Entrar</button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 - Joões & Azeitoneta | 
+       Contato: <a href="mailto:contato@cantinhodaleitura.com">contato@cantinhodaleitura.com</a>
+    </p>
+  </footer>
+
+</body>
+</html>
+
