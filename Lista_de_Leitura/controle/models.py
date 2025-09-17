@@ -13,7 +13,7 @@ class Pessoa(models.Model):
 class Livro(models.Model):
  id_livro = models.AutoField(primary_key=True)
  nome_livro = models.CharField(max_length=60)
- nome_autor = models.CharField(max_length=50)
+ nome_autor = models.CharField(max_length=150)
  codigo_livro = models.CharField(max_length=80)
  numero_paginas = models.IntegerField()
  imagem = models.CharField(max_length=50,blank=True)
