@@ -53,6 +53,7 @@
       flex-wrap: wrap;
       gap: 20px;
       justify-content: center;
+      align-items: flex-start;
     }
 
     .cardlista {
@@ -119,7 +120,6 @@
       background: rgb(40, 45, 90);
     }
 
-    /* Botão flutuante de adicionar */
     .add-btn {
       position: fixed;
       bottom: 30px;
@@ -142,7 +142,6 @@
       box-shadow: 0 10px 25px rgba(0,0,0,0.4);
     }
 
-    /* Botão de remover dentro do card */
     .remove-btn {
       margin-top: 10px;
       background: rgb(200, 50, 60);
@@ -157,6 +156,28 @@
 
     .remove-btn:hover {
       background: rgb(160, 30, 40);
+    }
+
+    
+    .btn-retornar {
+      display: inline-block;
+      padding: 10px 20px;
+      margin: 20px auto;
+      background-color: #df8d13;
+      color: #fff;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      text-align: center;
+      font-size: 1rem;
+      transition: 0.3s ease;
+    }
+
+    .btn-retornar:hover {
+      background-color: #c77a0d;
+      transform: scale(1.05);
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
     }
 
     footer {
@@ -185,10 +206,6 @@
     <img src="/static/images/ugblogo.png" alt="Logo UGB">
     <h1>Cantinho da Leitura</h1>
   </header>
-
-<a href=http://127.0.0.1:8000/Cantinho_da_Leitura/>
-<button>Retornar</button>
-</a>
 
   <main>
     {% for i in leitura %}
@@ -225,6 +242,11 @@
 <a href="http://127.0.0.1:8000/busca/">
   <button class="add-btn" title="Adicionar Livro">+</button>
 </a>
+
+<a href=http://127.0.0.1:8000/Cantinho_da_Leitura/ class="btn-retornar">
+Retornar
+</a>
+
   <footer>
     <p>&copy; 2025 - Joões & Azeitoneta | 
       Contato: <a href="mailto:contato@cantinhodaleitura.com">contato@cantinhodaleitura.com</a>

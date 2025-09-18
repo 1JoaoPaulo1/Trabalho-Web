@@ -29,7 +29,7 @@
       margin: 40px auto;
       padding: 120px;
       position: relative;
-      background-image: url(/static/images/biblioteca.png);
+      background-image: url(/controle/static/images/biblioteca.png);
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -110,6 +110,19 @@
       box-shadow: 0 0 6px rgba(58, 65, 128, 0.4);
     }
 
+    select {
+      width: 100%;
+      max-width: 300px;
+      padding: 10px 12px;
+      font-size: 1rem;
+      border: 2px solid #ccc;
+      border-radius: 8px;
+      background-color: #fff;
+      color: #333;
+      appearance: none;
+      transition: 0.3s;
+    }
+
     button {
       width: 100%;
       padding: 12px;
@@ -149,7 +162,7 @@
 <body>
 
   <header>
-    <img src="/static/images/ugblogo.png" alt="Logo UGB">
+    <img src="/controle/static/images/ugblogo.png" alt="Logo UGB">
     <h1>Cantinho da Leitura</h1>
   </header>
 
@@ -166,33 +179,34 @@
           <label for="senha">Senha:</label>
           <input type="password" id="senha" name="senha" placeholder="Digite sua senha (3 caracteres)" autocomplete=off>
 
-          <label for="curso">Curso:</label>
-    <select id = "cursos" name = "dropdown">
-    <option value ="Administração">Administração</option>
-    <option value ="Arquitetura e Urbanismo">Arquitetura e Urbanismo</option>
-    <option value ="Educação Física">Educação Física</option>
-    <option value ="Biomedicina">Biomedicina</option>
-    <option value ="Direito">Direito</option>
-    <option value ="Enfermagem">Enfermagem</option>
-    <option value ="Engenharia Civil">Engenharia Civil</option>
-    <option value ="Engenharia de Produção">Engenharia de Produção</option>
-    <option value ="Engenharia de Software">Engenharia de Software</option>
-    <option value ="Engenharia Elétrica">Engenharia Elétrica</option>
-    <option value ="Engenharia Mecânica">Engenharia Mecânica</option>
-    <option value ="Fonoaudiologia">Fonoaudiologia</option>
-    <option value ="Gestão em Recursos Humanos">Gestão em Recursos Humanos</option>
-    <option value ="Graduação Tecnológica em Logística">Graduação Tecnológica em Logística</option>
-    <option value ="Licenciatura em Ciências Biológicas">Licenciatura em Ciências Biológicas</option>
-    <option value ="Licenciatura em História">Licenciatura em História</option>
-    <option value ="Licenciatura em Letras">Licenciatura em Letras</option>
-    <option value ="Licenciatura em Matemática">Licenciatura em Matemática</option>
-    <option value ="Licenciatura em Pedagogia">Licenciatura em Pedagogia</option>
-    <option value ="Nutrição">Nutrição</option>
-    <option value ="Psicologia">Psicologia</option>
-    <option value ="Serviço Social">Serviço Social</option>
-    <option value ="Sistemas de Informação">Sistemas de Informação</option>
-    <option value ="Terapia Ocupacional">Terapia Ocupacional</option>
-    </select>
+          <label for="cursos">Curso:</label>
+          <div>
+            <select id="cursos" name="dropdown">
+              <option value="Administração">Administração</option>
+              <option value="Arquitetura e Urbanismo">Arquitetura e Urbanismo</option>
+              <option value ="Educação Física">Educação Física</option> 
+              <option value ="Biomedicina">Biomedicina</option> 
+              <option value ="Direito">Direito</option> 
+              <option value ="Enfermagem">Enfermagem</option> 
+              <option value ="Engenharia Civil">Engenharia Civil</option> 
+              <option value ="Engenharia de Produção">Engenharia de Produção</option> 
+              <option value ="Engenharia de Software">Engenharia de Software</option> 
+              <option value ="Engenharia Elétrica">Engenharia Elétrica</option> 
+              <option value ="Engenharia Mecânica">Engenharia Mecânica</option> 
+              <option value ="Fonoaudiologia">Fonoaudiologia</option> 
+              <option value ="Gestão em Recursos Humanos">Gestão em Recursos Humanos</option> 
+              <option value ="Graduação Tecnológica em Logística">Graduação Tecnológica em Logística</option> 
+              <option value ="Licenciatura em Ciências Biológicas">Licenciatura em Ciências Biológicas</option> 
+              <option value ="Licenciatura em História">Licenciatura em História</option> 
+              <option value ="Licenciatura em Letras">Licenciatura em Letras</option> 
+              <option value ="Licenciatura em Matemática">Licenciatura em Matemática</option> 
+              <option value ="Licenciatura em Pedagogia">Licenciatura em Pedagogia</option> 
+              <option value ="Nutrição">Nutrição</option> <option value ="Psicologia">Psicologia</option> 
+              <option value ="Serviço Social">Serviço Social</option> 
+              <option value ="Sistemas de Informação">Sistemas de Informação</option> 
+              <option value ="Terapia Ocupacional">Terapia Ocupacional</option> 
+            </select>
+          </div>
 <br>
           <button type="submit">Cadastrar</button>
 
