@@ -46,7 +46,14 @@ def login(request):
 
 def cadastro(request):
  if request.method=="POST":
-  pass
+  valores = request.POST
+  if len(Pessoa.objects.filter(matricula=valores["matricula"])) == 0 and len(valores["senha"]) == 3:
+   p = Pessoa(matricula=valores["matricula"], senha=valores["senha"],curso=valores["dropdown"])
+   p.save()
+   return redirect("login")
+  else:
+   return render(request,"sites/Cadastro.html")
+   
  else:
   return render(request,"sites/Cadastro.html")
 
@@ -79,13 +86,45 @@ def busca(request):
  if len(logado) == 1:
   logado = Logado.objects.get(logado=True)
   livro = Livro.objects.all()
-  return render(request,"sites/Busca.html",{"livro":livro})
-  if request.method =="POST":
-   buscar = (request.POST)
-   return render(request,"sites/Busca.html",{"livro":livro})
+  leitura = Leitura.objects.filter(pessoa = logado.pessoa).order_by("id_leitura")
+  for i in leitura:
+   livro = livro.exclude(id_livro = i.livro.id_livro)
 
+  if request.method =="POST":
+   valor = (request.POST)
+   if valor["tipo"] == "busca":
+    logado = Logado.objects.get(logado=True)
+    livro = Livro.objects.filter(nome_livro__contains=valor["identificar"])
+    leitura = Leitura.objects.filter(pessoa = logado.pessoa).order_by("id_leitura")
+    for i in leitura:
+     livro = livro.exclude(id_livro = i.livro.id_livro)
+    return render(request,"sites/Busca.html",{"livro":livro})
+   if valor["tipo"] == "adicionar":
+    logado = Logado.objects.get(logado=True) 
+    if len(Leitura.objects.filter(pessoa = logado.pessoa,livro=valor["identificar"])) == 0:
+     p = Pessoa.objects.get(id_pessoa = logado.pessoa.id_pessoa)
+     liv = Livro.objects.get(id_livro = valor["identificar"])
+     l = Leitura(livro = liv,pessoa = p,pagina_atual = 1,nota=0)
+     l.save()
+     livro = Livro.objects.all()
+     leitura = Leitura.objects.filter(pessoa = logado.pessoa).order_by("id_leitura")
+     for i in leitura:
+      livro = livro.exclude(id_livro = i.livro.id_livro)
+     return redirect("minha_lista")
+    else:
+     logado = Logado.objects.get(logado=True)
+     livro = Livro.objects.all()
+     leitura = Leitura.objects.filter(pessoa = logado.pessoa).order_by("id_leitura")
+     for i in leitura:
+      livro = livro.exclude(id_livro = i.livro.id_livro)
+     return render(request,"sites/Busca.html",{"livro":livro})        
+
+    
   else:
    livro = Livro.objects.all()
+   leitura = Leitura.objects.filter(pessoa = logado.pessoa).order_by("id_leitura")
+   for i in leitura:
+    livro = livro.exclude(id_livro = i.livro.id_livro)
    return render(request,"sites/Busca.html",{"livro":livro})
 
  else:
@@ -110,7 +149,15 @@ def minha_lista(request):
    leitura = Leitura.objects.filter(pessoa = logado.pessoa).order_by("id_leitura")
   
 
-   return render(request,"sites/Minha Lista.html",{"leitura":leitura})
+   return render(request,"sites/Meus Livros.html",{"leitura":leitura})
+  elif request.method=="POST" and request.POST["identificar"] == "remover":
+    a = Leitura.objects.get(id_leitura =int(request.POST["remover"]))
+    a.delete()
+    logado = Logado.objects.get(logado=True)
+    leitura = Leitura.objects.filter(pessoa = logado.pessoa).order_by("id_leitura")
+    return render(request,"sites/Meus Livros.html",{"leitura":leitura})
+
+
   else:
    if request.method =="POST":
     valores = (request.POST)
@@ -124,7 +171,7 @@ def minha_lista(request):
      Ler.save()
      logado = Logado.objects.get(logado=True)
      leitura = Leitura.objects.filter(pessoa = logado.pessoa).order_by("id_leitura")
-     return render(request,"sites/Minha Lista.html",{"leitura":leitura})
+     return render(request,"sites/Meus Livros.html",{"leitura":leitura})
     
     else:
      logado = Logado.objects.filter(logado=True)
@@ -133,7 +180,7 @@ def minha_lista(request):
        logado = Logado.objects.get(logado=True)
        leitura = Leitura.objects.filter(pessoa = logado.pessoa).order_by("id_leitura")
   
-       return render(request,"sites/Minha Lista.html",{"leitura":leitura})
+       return render(request,"sites/Meus Livros.html",{"leitura":leitura})
      else:
       logado = Logado.objects.all()
       for i in logado:

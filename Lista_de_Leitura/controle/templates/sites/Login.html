@@ -5,11 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login - Cantinho da Leitura</title>
 
-  <!-- CSS externo -->
-  <link rel="stylesheet" href="style.css">
-
-  <!-- JS externo -->
-  <script src="script.js" defer></script>
 
   <!-- Ícone da aba -->
   <link rel="icon" href="favicon.ico" type="image/x-icon">
@@ -35,7 +30,7 @@
       margin: 40px auto;
       padding: 120px;
       position: relative;
-      background-image: url(/controle/static/images/biblioteca.png);
+      background-image: url(images/biblioteca.png);
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -155,7 +150,7 @@
 <body>
 
       <header>
-        <img src="/controle/static/images/ugblogo.png">
+        <img src="static/images/ugblogo.png">
         <h1>Cantinho da Leitura</h1>
       </header>
     
@@ -167,12 +162,17 @@
               <h2>Login de Usuário</h2>
 
         <form method="POST">
+{% csrf_token %}
             <label for="usuario">Matrícula:</label><br>
-            <input type="text" id="matricula" name="matricula" placeholder="Digite sua matrícula"><br><br>
+            <input type="text" id="matricula" name="matricula" placeholder="Digite sua matrícula" autocomplete=off><br><br>
             <label for="senha">Senha:</label><br>
-            <input type="password" id="senha" name="senha" placeholder="Digite sua senha"><br><br>
+            <input type="password" id="senha" name="senha" placeholder="Digite sua senha" autocomplete=off><br><br>
             <button type="submit">Entrar</button>
         </form>
+<br>
+<a href=http://127.0.0.1:8000/cadastro/>
+            <button type="submit">Cadastre-se</button>
+</a>
           </div>
         </div>
 

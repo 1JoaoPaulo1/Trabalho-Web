@@ -24,7 +24,7 @@ urlpatterns = [
     path('Cantinho_da_Leitura/',views.centro, name="centro"),
     path('ajuda/',views.ajuda, name="ajuda"),
     path('busca/',views.busca,name="busca"),
-    path('minha_lista/',views.minha_lista,name="busca")
+    path('minha_lista/',views.minha_lista,name="minha_lista")
 
 
 ]

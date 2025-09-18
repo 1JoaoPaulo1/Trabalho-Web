@@ -14,7 +14,7 @@
 
     body {
       font-family: Arial, sans-serif;
-      background: #f1f1f1;
+      background: rgb(58, 65, 128);
       min-height: 100vh;
       display: flex;
       flex-direction: column;
@@ -63,6 +63,7 @@
       text-align: center;
       width: 280px;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border:2px solid #df8d13;
     }
 
     .cardlista:hover {
@@ -181,9 +182,13 @@
 <body>
 
   <header>
-    <img src="/controle/static/images/ugblogo.png" alt="Logo UGB">
+    <img src="/static/images/ugblogo.png" alt="Logo UGB">
     <h1>Cantinho da Leitura</h1>
   </header>
+
+<a href=http://127.0.0.1:8000/Cantinho_da_Leitura/>
+<button>Retornar</button>
+</a>
 
   <main>
     {% for i in leitura %}
@@ -209,6 +214,7 @@
         </form>
         <form method="POST" style="margin-top:10px;">
           {% csrf_token %}
+          <input type="hidden" name="identificar" value="remover">
           <input type="hidden" name="remover" value="{{ i.id_leitura }}">
           <button type="submit" class="remove-btn">🗑️ Remover</button>
         </form>
@@ -216,9 +222,9 @@
     {% endfor %}
   </main>
 
-  <!-- Botão para adicionar novo livro -->
+<a href="http://127.0.0.1:8000/busca/">
   <button class="add-btn" title="Adicionar Livro">+</button>
-
+</a>
   <footer>
     <p>&copy; 2025 - Joões & Azeitoneta | 
       Contato: <a href="mailto:contato@cantinhodaleitura.com">contato@cantinhodaleitura.com</a>

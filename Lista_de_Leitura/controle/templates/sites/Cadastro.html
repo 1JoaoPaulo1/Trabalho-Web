@@ -5,12 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cadastro - Cantinho da Leitura</title>
 
-  <!-- CSS externo -->
-  <link rel="stylesheet" href="style.css">
-
-  <!-- JS externo -->
-  <script src="script.js" defer></script>
-
   <!-- Ícone da aba -->
   <link rel="icon" href="favicon.ico" type="image/x-icon">
 
@@ -35,7 +29,7 @@
       margin: 40px auto;
       padding: 120px;
       position: relative;
-      background-image: url(/controle/static/images/biblioteca.png);
+      background-image: url(/static/images/biblioteca.png);
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -155,7 +149,7 @@
 <body>
 
   <header>
-    <img src="/controle/static/images/ugblogo.png" alt="Logo UGB">
+    <img src="/static/images/ugblogo.png" alt="Logo UGB">
     <h1>Cantinho da Leitura</h1>
   </header>
 
@@ -164,18 +158,49 @@
       <div class="card">
         <div class="card-icon">👤</div>
         <h2>Cadastro de Usuário</h2>
-        <form>
+        <form method="POST">
+{% csrf_token %}
           <label for="usuario">Matrícula:</label>
-          <input type="text" id="usuario" name="usuario" placeholder="Digite sua matrícula">
+          <input type="text" id="usuario" name="matricula" placeholder="Digite sua matrícula" autocomplete=off>
 
           <label for="senha">Senha:</label>
-          <input type="password" id="senha" name="senha" placeholder="Digite sua senha">
+          <input type="password" id="senha" name="senha" placeholder="Digite sua senha (3 caracteres)" autocomplete=off>
 
           <label for="curso">Curso:</label>
-          <input type="text" id="curso" name="curso" placeholder="Digite o seu curso">
+    <select id = "cursos" name = "dropdown">
+    <option value ="Administração">Administração</option>
+    <option value ="Arquitetura e Urbanismo">Arquitetura e Urbanismo</option>
+    <option value ="Educação Física">Educação Física</option>
+    <option value ="Biomedicina">Biomedicina</option>
+    <option value ="Direito">Direito</option>
+    <option value ="Enfermagem">Enfermagem</option>
+    <option value ="Engenharia Civil">Engenharia Civil</option>
+    <option value ="Engenharia de Produção">Engenharia de Produção</option>
+    <option value ="Engenharia de Software">Engenharia de Software</option>
+    <option value ="Engenharia Elétrica">Engenharia Elétrica</option>
+    <option value ="Engenharia Mecânica">Engenharia Mecânica</option>
+    <option value ="Fonoaudiologia">Fonoaudiologia</option>
+    <option value ="Gestão em Recursos Humanos">Gestão em Recursos Humanos</option>
+    <option value ="Graduação Tecnológica em Logística">Graduação Tecnológica em Logística</option>
+    <option value ="Licenciatura em Ciências Biológicas">Licenciatura em Ciências Biológicas</option>
+    <option value ="Licenciatura em História">Licenciatura em História</option>
+    <option value ="Licenciatura em Letras">Licenciatura em Letras</option>
+    <option value ="Licenciatura em Matemática">Licenciatura em Matemática</option>
+    <option value ="Licenciatura em Pedagogia">Licenciatura em Pedagogia</option>
+    <option value ="Nutrição">Nutrição</option>
+    <option value ="Psicologia">Psicologia</option>
+    <option value ="Serviço Social">Serviço Social</option>
+    <option value ="Sistemas de Informação">Sistemas de Informação</option>
+    <option value ="Terapia Ocupacional">Terapia Ocupacional</option>
+    </select>
+<br>
+          <button type="submit">Cadastrar</button>
 
-          <button type="submit">Entrar</button>
         </form>
+<br>
+<a href=http://127.0.0.1:8000/>
+<button type="submit">Login</button>
+</a>
       </div>
     </div>
   </main>
