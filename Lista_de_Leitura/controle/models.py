@@ -12,8 +12,8 @@ class Pessoa(models.Model):
 
 class Livro(models.Model):
  id_livro = models.AutoField(primary_key=True)
- nome_livro = models.CharField(max_length=60)
- nome_autor = models.CharField(max_length=150)
+ nome_livro = models.CharField(max_length=250)
+ nome_autor = models.CharField(max_length=250)
  codigo_livro = models.CharField(max_length=80, unique=True)
  numero_paginas = models.IntegerField()
 

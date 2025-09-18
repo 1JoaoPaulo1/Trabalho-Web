@@ -237,16 +237,16 @@
     <body>
     
     <header>
-        <img src="/controle/static/images/ugblogo.png">
+        <img src="/static/images/ugblogo.png">
         <h1>Cantinho da Leitura</h1>
     </header>
 
-<h2 style="text-align: center; margin: 20px 0;">🔍 Pesquisa</h2>
+<h2 style="text-align: center; margin: 20px 0;color:white;">🔍 Barra de Pesquisa</h2>
 <form method="POST" class="search-form">
   {% csrf_token %}
   <input type="hidden" name="tipo" value="busca">
   
-  <input type="text" name="identificar" placeholder="Digite o nome ou autor..." autocomplete="off">
+  <input type="text" name="identificar" placeholder="Digite o nome do livro." autocomplete="off">
   
   <button type="submit" class="reset-btn">Resetar Filtro</button>
 </form>
@@ -271,7 +271,7 @@
               <p>{{i.numero_paginas}}</p>
 
 
-          <button type="submit">💾 Adicionar a Meus Livros</button>
+          <button type="submit" style="align-item:end">💾 Adicionar a Meus Livros</button>
 
 <input type="hidden" name="tipo" value="adicionar">
 <input type="hidden" name="identificar" value="{{i.id_livro}}">
