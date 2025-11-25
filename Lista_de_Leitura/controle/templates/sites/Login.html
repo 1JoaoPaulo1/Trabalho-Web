@@ -1,188 +1,176 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login - Cantinho da Leitura</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login - Cantinho da Leitura</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
-  <!-- Ícone da aba -->
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
+<style>
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
 
-    body {
-      font-family: Arial, sans-serif;
-      background-color: rgb(58, 65, 128);
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
+body {
+    background: #677fc9;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
 
-    main {
-      flex: 1;
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 120px;
-      position: relative;
-      background-image: url(/static/images/biblioteca.png);
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      border-radius: 12px;
-      box-shadow: 15px 15px 30px rgba(0,0,0,0.5);
-    }
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    background: #ffffff;
+    border-bottom: 3px solid #df8d13;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    position: relative;
+}
 
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
+header img {
+    position: absolute;
+    left: 25px;
+    height: 60px;
+}
 
-    header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1rem 2rem;
-      background: #f9f9f9;
-      border-bottom: 2px solid #df8d13;
-    }
+header h1 {
+    color: rgb(58, 65, 128);
+    font-size: 2rem;
+    font-weight: 600;
+}
 
-    header img {
-      height: 60px;
-    }
+header h2 {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    color: #e08f16;
+}
 
-    header h1 {
-      color: rgb(58, 65, 128);
-      font-size: 2rem;
-    }
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 20px;
+}
 
-    .card-container {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
+.card-container {
+    width: 100%;
+    max-width: 400px;
+}
 
-    .card {
-      background: #ffffff;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      text-align: center;
-      width: 100%;
-      max-width: 400px;
-    }
+.card {
+    background: white;
+    padding: 30px;
+    border-radius: 18px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+    text-align: center;
+}
 
-    .card h2 {
-      margin-bottom: 20px;
-      color: rgb(58, 65, 128);
-    }
+.card h2 {
+    color: rgb(58, 65, 128);
+    margin-bottom: 20px;
+}
 
-    .card-icon {
-      font-size: 2rem;
-      margin-bottom: 10px;
-    }
+label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 5px;
+    text-align: left;
+}
 
-    label {
-      display: block;
-      font-size: 1rem;
-      font-weight: bold;
-      margin: 10px 0 5px;
-      text-align: left;
-    }
+input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 1rem;
+}
 
-    input {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 15px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      font-size: 1rem;
-    }
+input:focus {
+    border-color: rgb(58, 65, 128);
+    outline: none;
+    box-shadow: 0 0 6px rgba(58, 65, 128, 0.4);
+}
 
-    input:focus {
-      border-color: rgb(58, 65, 128);
-      outline: none;
-      box-shadow: 0 0 6px rgba(58, 65, 128, 0.4);
-    }
+button {
+    width: 100%;
+    padding: 12px;
+    background: rgb(58, 65, 128);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.25s ease;
+}
 
-    button {
-      width: 100%;
-      padding: 12px;
-      background: rgb(58, 65, 128);
-      color: #fff;
-      border: none;
-      border-radius: 8px;
-      font-size: 1.1rem;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
+button:hover {
+    background: rgb(223, 146, 31);
+}
 
-    button:hover {
-      background: rgb(40, 45, 90);
-    }
+footer {
+    background: #000;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: auto;
+    border-top: 4px solid #df8d13;
+}
 
-    footer {
-      background: #000000;
-      color: white;
-      text-align: center;
-      padding: 20px;
-      margin-top: auto;
-      font-size: 0.9rem;
-      border-top: 2px solid #df8d13;
-    }
+footer a {
+    color: #4dabf7;
+    text-decoration: none;
+}
 
-    footer a {
-      color: #4dabf7;
-      text-decoration: none;
-    }
-
-    footer a:hover {
-      text-decoration: underline;
-    }
-  </style>
+footer a:hover {
+    text-decoration: underline;
+}
+</style>
 </head>
 <body>
 
-      <header>
-        <img src="/static/images/ugblogo.png">
+<header>
+    <img src="/Trabalho-Web/Lista_de_Leitura/controle/static/images/ugblogo.png" alt="Logo">
+    <div class="header-center">
         <h1>Cantinho da Leitura</h1>
-      </header>
-    
-      <main>
+        <h2>Organize, explore e se inspire com suas leituras.</h2>
+    </div>
+</header>
 
-        <div class="card-container">
-          <div class="card">
-              <div class="card-icon">👤</div>
-              <h2>Login de Usuário</h2>
-
-        <form method="POST">
-{% csrf_token %}
-            <label for="usuario">Matrícula:</label><br>
-            <input type="text" id="matricula" name="matricula" placeholder="Digite sua matrícula" autocomplete=off><br><br>
-            <label for="senha">Senha:</label><br>
-            <input type="password" id="senha" name="senha" placeholder="Digite sua senha" autocomplete=off><br><br>
-            <button type="submit">Entrar</button>
-        </form>
-<br>
-<a href=http://127.0.0.1:8000/cadastro/>
-            <button type="submit">Cadastre-se</button>
-</a>
-          </div>
+<main>
+    <div class="card-container">
+        <div class="card">
+            <h2>👤 Login de Usuário</h2>
+            <form method="POST">
+                {% csrf_token %}
+                <label for="matricula">Matrícula:</label>
+                <input type="text" id="matricula" name="matricula" placeholder="Digite sua matrícula" autocomplete="off">
+                
+                <label for="senha">Senha:</label>
+                <input type="password" id="senha" name="senha" placeholder="Digite sua senha" autocomplete="off">
+                
+                <button type="submit">Entrar</button>
+            </form>
+            <br>
+            <a href="http://127.0.0.1:8000/cadastro">
+                <button type="button">Cadastre-se</button>
+            </a>
         </div>
+    </div>
+</main>
 
-      </main>
-    
-    <footer>
-        <p>&copy; 2025 - Joões & Azeitoneta | 
-        Contato: <a href="mailto:contato@cantinhodaleitura.com">contato@cantinhodaleitura.com</a>
-        </p>
-    </footer>
-    
-    </body>
-    </html>
+<footer>
+    © 2025 - João, João & Azeite
+</footer>
+
+</body>
+</html>

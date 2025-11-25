@@ -5,207 +5,304 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cantinho da Leitura</title>
 
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
 <style>
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+/* --------------------------------------------------------- MODO CLARO --------------------------------------------------------- */
 
-        body {
-            font-family: Arial, sans-serif;
-            background-color: rgb(58, 65, 128);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
 
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
+body {
+    background: #677fc9;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    transition: background 0.3s ease, color 0.3s ease;
+}
 
-        header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 1rem 2rem;
-            background: #f9f9f9;
-            border-bottom: 2px solid #df8d13;
-        }
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    background: #ffffff;
+    border-bottom: 3px solid #df8d13;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    position: relative;
+}
 
-        header img {
-            height: 60px;
-        }
+header img {
+    position: absolute;
+    left: 25px;
+    height: 60px;
+}
 
-        header h1 {
-            color: rgb(58, 65, 128);
-            font-size: 2rem;
-        }
+header h1 {
+    color: rgb(58, 65, 128);
+    font-size: 2rem;
+    font-weight: 600;
+}
 
-        .welcome {
-            background-color: #000000;
-            text-align: center;
-            padding: 20px;
-            color: #ffffff;
-            font-size: 1.2rem;
-            margin: 20px;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-        }
+header h2 {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    color: #e08f16;
+}
 
-        .card-container {
-            display: flex;
-            justify-content: center;
-            gap: 50px;
-            flex-wrap: wrap;
-            margin: 50px;
-        }
+.header-right {
+    position: absolute;
+    right: 25px;
+    display: flex;
+    gap: 12px;
+}
 
-        .card {
-            background: #ffffff;
-            padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            text-align: center;
-            width: 220px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 2px solid #df8d13;
-        }
+.header-btn {
+    padding: 8px 14px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    background: #fff;
+    cursor: pointer;
+    font-weight: 500;
+    transition: 0.2s ease;
+    text-decoration: none;
+}
 
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 12px 40px rgba(0,0,0,0.3);
-        }
+.header-btn:hover {
+    background: rgb(223, 146, 31);
+}
 
-        .card h3 {
-            margin-bottom: 10px;
-            font-size: 1.3rem;
-            color: rgb(58, 65, 128);
-        }
+.cards-container {
+    max-width: 1100px;
+    margin: 40px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
 
-        .card p {
-            font-size: 0.95rem;
-            color: #555;
-        }
+.big-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    border-radius: 18px;
+    padding: 28px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+    border-left: 6px solid #df8d13;
+    min-height: 220px;
+    width: 100%;
+    transition: all 0.3s ease;
+}
 
-        .card a {
-            display: inline-block;
-            margin-top: 15px;
-            padding: 10px 15px;
-            font-size: 1rem;
-            border-radius: 8px;
-            transition: all 0.4s ease;
-            color: #ffffff;
-            cursor: pointer;
-        }
+.big-card.right-img {
+    border-left: none;
+    border-right: 6px solid #df8d13;
+}
 
-        .lista-btn {
-            background: rgb(200, 50, 60);
-        }
+.card-img {
+    width: 230px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 14px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+}
 
-        .lista-btn:hover {
-            background: rgb(200, 50, 60);
-            box-shadow: 4px 4px 12px rgba(150, 35, 45, 0.7);
-            transform: translateY(-3px) scale(1.05);
-        }
+.card-content {
+    max-width: 70%;
+}
 
-        .busca-btn {
-            background: rgb(50, 100, 200);
-        }
+.card-content h2 {
+    color: rgb(58, 65, 128);
+    margin-bottom: 10px;
+}
 
-        .busca-btn:hover {
-            background: rgb(50, 100, 200)
-            box-shadow: 4px 4px 12px rgba(35, 70, 140, 0.7);
-            transform: translateY(-3px) scale(1.05);
-        }
+.card-content p {
+    color: #444;
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
 
-        .ajuda-btn {
-            background: rgb(40, 160, 60);
-        }
+.action-btn {
+    background: rgb(58, 65, 128);
+    color: white;
+    padding: 12px 18px;
+    border-radius: 10px;
+    font-weight: 600;
+    display: inline-block;
+    transition: 0.25s ease;
+    text-decoration: none;
+}
 
-        .ajuda-btn:hover {
-            background: rgb(40, 160, 60);
-            box-shadow: 4px 4px 12px rgba(25, 120, 45, 0.7);
-            transform: translateY(-3px) scale(1.05);
-        }
+.action-btn:hover {
+    background: rgb(223, 146, 31);
+}
 
-        footer {
-            background: #000000;
-            color: white;
-            text-align: center;
-            padding: 20px;
-            margin-top: auto;
-            font-size: 0.9rem;
-            border-top: 2px solid #df8d13;
-        }
+.help-btn {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background: rgb(40,160,60);
+    color: white;
+    font-size: 1.8rem;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    transition: 0.25s ease;
+    text-decoration: none;
+}
 
-        footer a {
-            color: #4dabf7;
-            text-decoration: none;
-        }
+.help-btn:hover {
+    background: rgb(32,130,50);
+    transform: scale(1.07);
+}
 
-        footer a:hover {
-            text-decoration: underline;
-        }
+footer {
+    background: #000;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: auto;
+    border-top: 4px solid #df8d13;
+}
 
-        .card-icon {
-            font-size: 2rem;
-            margin-bottom: 10px;
-        }
+/* --------------------------------------------------------- MODO ESCURO --------------------------------------------------------- */
+
+body.dark {
+    background: #0a1f61;
+    color: #f5f5f5;
+}
+
+body.dark header {
+    background: #1f2a50;
+    border-bottom: 3px solid #df8d13;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+}
+
+body.dark header h1 {
+    color: #f5f5f5;
+}
+
+body.dark header h2 {
+    color: #f0c568;
+}
+
+body.dark .big-card {
+    background: #1e2b4d;
+    color: #f5f5f5;
+    border-left: 6px solid #df8d13;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.6);
+}
+
+body.dark .big-card.right-img {
+    border-left: none;
+    border-right: 6px solid #df8d13;
+}
+
+body.dark .card-content h2 {
+    color: #f5f5f5;
+}
+
+body.dark .card-content p {
+    color: #e0e0e0;
+}
+
+body.dark .action-btn {
+    background: #2d3264;
+    color: #f5f5f5;
+}
+
+body.dark .action-btn:hover {
+    background: rgb(223, 146, 31);
+}
+
+body.dark .help-btn {
+    background: #28a045;
+    color: #fff;
+}
+
+body.dark .help-btn:hover {
+    background: #1f8040;
+}
+
+body.dark footer {
+    background: #111;
+    color: #f5f5f5;
+    border-top: 2px solid #df8d13;
+}
 
 </style>
-
 </head>
+
 <body>
 
-    <header>
-        <img src="/static/images/ugblogo.png">
+<header>
+    <img src="/Trabalho-Web/Lista_de_Leitura/controle/static/images/ugblogo.png" height="60px">
+
+    <div class="header-center">
         <h1>Cantinho da Leitura</h1>
-    </header>
+        <h2>Organize, explore e se inspire com suas leituras.</h2>
+    </div>
+
+    <div class="header-right">
+        <button class="header-btn" id="darkModeBtn">Modo Escuro</button>
+        <button class="header-btn">Sair</button>
+    </div>
+</header>
 
 <main>
 
-    <div class="welcome">
-        <p>Bem-vindo ao Cantinho da Leitura!<br><br>
-        Aqui você pode registrar os livros que está lendo no momento. Assim, fica mais fácil organizar seus estudos e manter um ritmo constante nas suas leituras.</p>
+    <div class="cards-container">
+
+        <div class="big-card left-img">
+            <img src="/Trabalho-Web/Lista_de_Leitura/controle/static/images/bibli.png" class="card-img" alt="Imagem 1">
+            <div class="card-content">
+                <h2>Bem‑vindo ao Cantinho da Leitura</h2>
+                <p>O Cantinho da Leitura tem como objetivo ajudar você a organizar seus estudos de forma prática e divertida. Acompanhe seus livros favoritos, registre as páginas que está lendo, atribua notas e comentários, descubra novos títulos e mantenha sua rotina de leitura sempre atualizada.</p>
+            </div>
+        </div>
+
+        <div class="big-card right-img">
+            <div class="card-content">
+                <h2>📚 Minha Lista</h2>
+                <p>Gerencie os livros que está lendo no momento. Marque as páginas, dê notas e se mantenha organizado.</p>
+                <a class="action-btn" href="http://127.0.0.1:8000/minha_lista">Acessar</a>
+            </div>
+            <img src="/Trabalho-Web/Lista_de_Leitura/controle/static/images/livros.png" class="card-img" alt="Imagem 2">
+        </div>
+
+        <div class="big-card left-img">
+            <img src="/Trabalho-Web/Lista_de_Leitura/controle/static/images/busca.png" class="card-img" alt="Imagem 3">
+            <div class="card-content">
+                <h2>🔍 Busca</h2>
+                <p>Encontre livros interessantes disponíveis na nossa biblioteca acadêmica.</p>
+                <a class="action-btn" href="http://127.0.0.1:8000/busca">Pesquisar</a>
+            </div>
+        </div>
     </div>
-
-    <div class="card-container">
-
-        <div class="card">
-            <div class="card-icon">📚</div>
-            <h3>Minha Lista</h3>
-            <p>Veja e gerencie os livros que você está lendo no momento.</p>
-            <a class="lista-btn" href="http://127.0.0.1:8000/minha_lista">Acessar</a>
-        </div>
-
-        <div class="card">
-            <div class="card-icon">🔍</div>
-            <h3>Busca</h3>
-            <p>Encontre livro digitando seu título ou partes dele.</p>
-            <a class="busca-btn" href="http://127.0.0.1:8000/busca">Pesquisar</a>
-        </div>
-
-        <div class="card">
-            <div class="card-icon">❓</div>
-            <h3>Ajuda</h3>
-            <p>Precisa de orientação? Veja dicas e instruções de uso.</p>
-            <a class="ajuda-btn" href="http://127.0.0.1:8000/ajuda">Saiba Mais</a>
-        </div>
-
-    </div>
-
 </main>
 
+<a class="help-btn" href="http://127.0.0.1:8000/ajuda">?</a>
+
 <footer>
-    <p>&copy; 2025 - Joões & Azeitoneta | 
-       Contato: <a href="mailto:contato@cantinhodaleitura.com">contato@cantinhodaleitura.com</a>
-    </p>
-  </footer>
+    © 2025 - João, João & Azeite
+</footer>
+
+<!-------------------------------------------------- JS para o funcionamento do Modo Escuro -------------------------------------------------->
+<script>
+    const darkBtn = document.querySelector(".header-right .header-btn");
+    darkBtn.addEventListener("click", () => {
+        document.body.classList.toggle("dark");
+    });
+
+</script>
 
 </body>
 </html>
-
-

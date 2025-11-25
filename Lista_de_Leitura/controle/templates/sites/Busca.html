@@ -1,173 +1,86 @@
-    <!DOCTYPE html>
-    <html lang="pt-br">
-    <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title></title>
-    
-      <!-- Estilos rápidos -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Busca de Livros - Cantinho da Leitura</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+
+    * { margin:0; padding:0; box-sizing:border-box; font-family: 'Poppins', sans-serif; }
+
+    body { 
+      background: #677fc9; 
+      min-height: 100vh; 
+      display: flex; 
+      flex-direction: column; 
+      transition: background 0.3s ease, color 0.3s ease;
     }
 
-    body {
-      font-family: Arial, sans-serif;
-      background: rgb(58, 65, 128);
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
+    a { text-decoration: none; color: inherit; }
 
     header {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      padding: 1rem 2rem;
-      background: #fff;
-      border-bottom: 2px solid #df8d13;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
-
-    header img {
-      height: 60px;
-    }
-
-    header h1 {
-      color: rgb(58, 65, 128);
-      font-size: 2rem;
-    }
-
-    main {
-      flex: 1;
-      max-width: 1200px;
-      margin: 30px auto;
-      padding: 20px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
       justify-content: center;
+      padding: 1.5rem;
+      background: #ffffff;
+      border-bottom: 3px solid #df8d13;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      position: relative;
     }
 
-    .cardlista {
-      background: #fff;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      text-align: center;
-      width: 280px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      border:2px solid #df8d13;
+    header img { 
+      position: absolute; 
+      left: 25px; 
+      height: 60px; 
     }
 
-    .cardlista:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    header h1 { 
+      color: rgb(58, 65, 128); 
+      font-size: 2rem; 
+      font-weight: 600; 
     }
 
-    .cardlista h2 {
-      margin: 10px 0;
-      color: rgb(58, 65, 128);
+    header h2 {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    color: #e08f16;
+    }
+    .header-right { 
+      position: absolute; 
+      right: 25px; 
+      display: flex; 
+      gap: 12px; 
     }
 
-    .cardlista label {
-      display: block;
-      font-weight: bold;
-      margin: 10px 0 5px;
-      text-align: left;
+    .header-btn { 
+      padding: 8px 14px; 
+      border-radius: 10px; 
+      border: 1px solid #ccc; 
+      background: #fff; 
+      cursor: pointer; 
+      font-weight: 500; 
+      transition: 0.2s ease; 
+      text-decoration: none; 
     }
 
-    .cardlista p {
-      margin-bottom: 10px;
-      color: #555;
-    }
-
-    .cardlista input {
-      width: 100%;
-      padding: 8px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      font-size: 1rem;
-      margin-bottom: 15px;
-    }
-
-    .cardlista input:focus {
-      border-color: rgb(58, 65, 128);
-      outline: none;
-      box-shadow: 0 0 6px rgba(58, 65, 128, 0.4);
-    }
-
-    .cardlista button {
-      width: 100%;
-      padding: 10px;
-      background: rgb(58, 65, 128);
-      color: #fff;
-      border: none;
-      border-radius: 8px;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-
-    .cardlista button:hover {
-      background: rgb(40, 45, 90);
-    }
-
-    .add-btn {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      width: 60px;
-      height: 60px;
-      background: rgb(40, 160, 60);
-      color: #fff;
-      font-size: 2rem;
-      font-weight: bold;
-      border: none;
-      border-radius: 50%;
-      cursor: pointer;
-      box-shadow: 0 6px 16px rgba(0,0,0,0.3);
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-
-    .add-btn:hover {
-      transform: scale(1.1);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.4);
-    }
-
-    .remove-btn {
-      margin-top: 10px;
-      background: rgb(200, 50, 60);
-      color: #fff;
-      border: none;
-      padding: 8px;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background 0.3s;
-      width: 100%;
-    }
-
-    .remove-btn:hover {
-      background: rgb(160, 30, 40);
+    .header-btn:hover { 
+      background: rgb(223,146,31); 
     }
 
     .search-form {
       display: flex;
       justify-content: center;
       gap: 10px;
-      margin-bottom: 30px;
+      margin: 30px auto;
       flex-wrap: wrap;
     }
 
     .search-form input {
-      padding: 10px;
+      padding: 12px;
       font-size: 1rem;
       border: 2px solid #df8d13;
       border-radius: 8px;
@@ -175,8 +88,14 @@
       transition: 0.3s;
     }
 
+    .search-form input:focus {
+      border-color: #df8d13;
+      outline: none;
+      box-shadow: 0 0 6px rgba(223,146,31,0.4);
+    }
+
     .reset-btn {
-      padding: 10px 20px;
+      padding: 12px 20px;
       background: red;
       color: #fff;
       border: none;
@@ -192,9 +111,69 @@
       box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
     }
 
+    main {
+      flex: 1;
+      max-width: 1200px;
+      margin: 0 auto 40px;
+      padding: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .cardlista {
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      text-align: center;
+      width: 280px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 2px solid #df8d13;
+    }
+
+    .cardlista:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    }
+
+    .cardlista h2 { 
+      margin: 10px 0; 
+      color: rgb(58, 65, 128); 
+    }
+
+    .cardlista label { 
+      display: block; 
+      font-weight: bold; 
+      margin: 10px 0 5px; 
+      text-align: left; 
+    }
+
+    .cardlista p { 
+      margin-bottom: 10px; 
+      color: #555; 
+    }
+
+    .cardlista button {
+      width: 100%;
+      padding: 10px;
+      background: rgb(58, 65, 128);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .cardlista button:hover { 
+      background: rgb(223, 146, 31); 
+    }
+
     .btn-retornar {
       display: inline-block;
-      padding: 10px 20px;
+      padding: 12px 25px;
       margin: 20px auto;
       background-color: #df8d13;
       color: #fff;
@@ -214,79 +193,134 @@
     }
 
     footer {
-      background: #000000;
+      background: #000;
       color: white;
       text-align: center;
       padding: 20px;
-      margin-top: auto;
-      font-size: 0.9rem;
-      border-top: 2px solid #df8d13;
+      border-top: 4px solid #df8d13;
     }
 
-    footer a {
-      color: #4dabf7;
-      text-decoration: none;
+    footer a { 
+      color: #4dabf7; 
+      text-decoration: none; 
     }
 
-    footer a:hover {
-      text-decoration: underline;
+    footer a:hover { 
+      text-decoration: underline; 
     }
+
+    /* --------------------------------------------------- modo escuro --------------------------------------------------- */
+
+    body.dark { 
+      background: #0a1f61; 
+      color: #f5f5f5; 
+    }
+
+    body.dark header { 
+      background: #1f2a50; 
+      box-shadow: 0 2px 8px rgba(0,0,0,0.5); 
+    }
+
+    body.dark header h1 { 
+      color: #f5f5f5; 
+    }
+
+    body.dark .search-form input { 
+      background: #2d3264; 
+      border: 1px solid #df8d13; 
+      color: #f5f5f5; 
+    }
+
+    body.dark .cardlista { 
+      background: #1e2b4d; 
+      color: #f5f5f5; 
+      border: 2px solid #df8d13; 
+      box-shadow: 0 6px 20px rgba(0,0,0,0.6); 
+    }
+
+    body.dark .cardlista h2 { 
+      color: #f5f5f5; 
+    }
+
+    body.dark .cardlista label, body.dark .cardlista p { 
+      color: #e0e0e0; 
+    }
+
+    body.dark .reset-btn, body.dark .btn-retornar { 
+      background-color: #df8d13; 
+      color: #f5f5f5; 
+    }
+
+    body.dark .reset-btn:hover, body.dark .btn-retornar:hover { 
+      background-color: #c77a0d; 
+    }
+
+    body.dark footer { 
+      background: #111; 
+      color: #f5f5f5; 
+      border-top: 2px solid #df8d13; 
+    }
+
   </style>
+</head>
+<body>
 
-    </head>
-    <body>
-    
-    <header>
-        <img src="/static/images/ugblogo.png">
+<header>
+    <img src="/Trabalho-Web/Lista_de_Leitura/controle/static/images/ugblogo.png" height="60px">
+     <div class="header-center">
         <h1>Cantinho da Leitura</h1>
-    </header>
+        <h2>Organize, explore e se inspire com suas leituras.</h2>
+    </div>
+    <div class="header-right">
+        <button class="header-btn" id="darkModeBtn">Modo Escuro</button>
+    </div>
+</header>
 
-<h2 style="text-align: center; margin: 20px 0;color:white;">🔍 Barra de Pesquisa</h2>
+<h2 style="text-align: center; margin: 20px 0; color:white;">🔍 Barra de Pesquisa</h2>
 <form method="POST" class="search-form">
   {% csrf_token %}
   <input type="hidden" name="tipo" value="busca">
-  
   <input type="text" name="identificar" placeholder="Digite o nome do livro." autocomplete="off">
-  
   <button type="submit" class="reset-btn">Resetar Filtro</button>
 </form>
 
-      <main>
+<main>
+  {% for i in livro %}
+  <div class="cardlista">
+    <form method="POST">
+      {% csrf_token %}
+      <label>Nome do Livro 📘</label>
+      <h2>{{ i.nome_livro }}</h2>
 
-{% for i in livro%}
-<div class="cardlista">
-<form method="POST">
-{% csrf_token %}
+      <label>Código do Livro</label>
+      <p>{{ i.codigo_livro }}</p>
 
-              <label for="id_nome_livro">Nome do Livro 📘</label><br>
-              <h2>{{ i.nome_livro}}</h2><br><br>
+      <label>Autor(es) 🤵</label>
+      <p>{{ i.nome_autor }}</p>
 
-              <label for="id_codigo">Código do Livro</label><br>
-              <p>{{i.codigo_livro}}</p><br><br>
+      <input type="hidden" name="tipo" value="adicionar">
+      <input type="hidden" name="identificar" value="{{ i.id_livro }}">
+      <button type="submit">💾 Adicionar a Meus Livros</button>
+    </form>
+  </div>
+  {% endfor %}
+</main>
 
-              <label for="id_autor">Autor(es) 🤵</label><br>
-              <p>{{i.nome_autor}}</p><br><br>
+<a href="http://127.0.0.1:8000/Cantinho_da_Leitura/" class="btn-retornar">Retornar</a>
 
+<footer>
+  <p>&copy; 2025 - Joões & Azeitoneta | 
+     Contato: <a href="mailto:contato@cantinhodaleitura.com">contato@cantinhodaleitura.com</a>
+  </p>
+</footer>
 
-          <button type="submit" style="align-item:end">💾 Adicionar a Meus Livros</button>
+<script>
+  // Modo Escuro
+  const darkBtn = document.querySelector("#darkModeBtn");
+  darkBtn.addEventListener("click", () => {
+    document.body.classList.toggle("dark");
+  });
+</script>
 
-<input type="hidden" name="tipo" value="adicionar">
-<input type="hidden" name="identificar" value="{{i.id_livro}}">
-
-</form>
-</div>
-{%endfor%}
-      </main>
-    
-<a href=http://127.0.0.1:8000/Cantinho_da_Leitura/ class="btn-retornar">
-Retornar
-</a>
-
-  <footer>
-    <p>&copy; 2025 - Joões & Azeitoneta | 
-      Contato: <a href="mailto:contato@cantinhodaleitura.com">contato@cantinhodaleitura.com</a>
-    </p>
-  </footer>
-    
-    </body>
-    </html>
+</body>
+</html>

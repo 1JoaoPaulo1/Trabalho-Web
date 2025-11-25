@@ -1,230 +1,204 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cadastro - Cantinho da Leitura</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cadastro - Cantinho da Leitura</title>
 
-  <!-- Ícone da aba -->
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<style>
 
-    body {
-      font-family: Arial, sans-serif;
-      background-color: rgb(58, 65, 128);
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
 
-    main {
-      flex: 1;
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 120px;
-      position: relative;
-      background-image: url(/static/images/biblioteca.png);
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      border-radius: 12px;
-      box-shadow: 15px 15px 30px rgba(0,0,0,0.5);
-    }
+body {
+    background: #677fc9;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
 
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    background: #ffffff;
+    border-bottom: 3px solid #df8d13;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    position: relative;
+}
 
-    header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1rem 2rem;
-      background: #f9f9f9;
-      border-bottom: 2px solid #df8d13;
-    }
+header img {
+    position: absolute;
+    left: 25px;
+    height: 60px;
+}
 
-    header img {
-      height: 60px;
-    }
+header h1 {
+    color: rgb(58, 65, 128);
+    font-size: 2rem;
+    font-weight: 600;
+}
 
-    header h1 {
-      color: rgb(58, 65, 128);
-      font-size: 2rem;
-    }
+header h2 {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    color: #e08f16;
+}
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 20px;
+}
 
-    .card-container {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
+.card-container {
+    width: 100%;
+    max-width: 450px;
+}
 
-    .card {
-      background: #ffffff;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      text-align: center;
-      width: 100%;
-      max-width: 400px;
-    }
+.card {
+    background: white;
+    padding: 30px;
+    border-radius: 18px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+    text-align: center;
+}
 
-    .card h2 {
-      margin-bottom: 20px;
-      color: rgb(58, 65, 128);
-    }
+.card h2 {
+    color: rgb(58, 65, 128);
+    margin-bottom: 20px;
+}
 
-    .card-icon {
-      font-size: 2rem;
-      margin-bottom: 10px;
-    }
+label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 5px;
+    text-align: left;
+}
 
-    label {
-      display: block;
-      font-size: 1rem;
-      font-weight: bold;
-      margin: 10px 0 5px;
-      text-align: left;
-    }
+input, select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 1rem;
+}
 
-    input {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 15px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      font-size: 1rem;
-    }
+input:focus, select:focus {
+    border-color: rgb(58, 65, 128);
+    outline: none;
+    box-shadow: 0 0 6px rgba(58, 65, 128, 0.4);
+}
 
-    input:focus {
-      border-color: rgb(58, 65, 128);
-      outline: none;
-      box-shadow: 0 0 6px rgba(58, 65, 128, 0.4);
-    }
+button {
+    width: 100%;
+    padding: 12px;
+    background: rgb(58, 65, 128);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.25s ease;
+}
 
-    select {
-      width: 100%;
-      max-width: 300px;
-      padding: 10px 12px;
-      font-size: 1rem;
-      border: 2px solid #ccc;
-      border-radius: 8px;
-      background-color: #fff;
-      color: #333;
-      appearance: none;
-      transition: 0.3s;
-    }
+button:hover {
+    background: rgb(223, 146, 31);
+}
 
-    button {
-      width: 100%;
-      padding: 12px;
-      background: rgb(58, 65, 128);
-      color: #fff;
-      border: none;
-      border-radius: 8px;
-      font-size: 1.1rem;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
+footer {
+    background: #000;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: auto;
+    border-top: 2px solid #df8d13;
+}
 
-    button:hover {
-      background: rgb(40, 45, 90);
-    }
+footer a {
+    color: #4dabf7;
+    text-decoration: none;
+}
 
-    footer {
-      background: #000000;
-      color: white;
-      text-align: center;
-      padding: 20px;
-      margin-top: auto;
-      font-size: 0.9rem;
-      border-top: 2px solid #df8d13;
-    }
-
-    footer a {
-      color: #4dabf7;
-      text-decoration: none;
-    }
-
-    footer a:hover {
-      text-decoration: underline;
-    }
-  </style>
+footer a:hover {
+    text-decoration: underline;
+}
+</style>
 </head>
 <body>
 
-  <header>
-    <img src="/static/images/ugblogo.png" alt="Logo UGB">
-    <h1>Cantinho da Leitura</h1>
-  </header>
-
-  <main>
-    <div class="card-container">
-      <div class="card">
-        <div class="card-icon">👤</div>
-        <h2>Cadastro de Usuário</h2>
-        <form method="POST">
-{% csrf_token %}
-          <label for="usuario">Matrícula:</label>
-          <input type="text" id="usuario" name="matricula" placeholder="Digite sua matrícula" autocomplete=off>
-
-          <label for="senha">Senha:</label>
-          <input type="password" id="senha" name="senha" placeholder="Digite sua senha (com 5 caracteres)" autocomplete=off>
-
-          <label for="cursos">Curso:</label>
-          <div>
-            <select id="cursos" name="dropdown">
-              <option value="Administração">Administração</option>
-              <option value="Arquitetura e Urbanismo">Arquitetura e Urbanismo</option>
-              <option value ="Educação Física">Educação Física</option> 
-              <option value ="Biomedicina">Biomedicina</option> 
-              <option value ="Direito">Direito</option> 
-              <option value ="Enfermagem">Enfermagem</option> 
-              <option value ="Engenharia Civil">Engenharia Civil</option> 
-              <option value ="Engenharia de Produção">Engenharia de Produção</option> 
-              <option value ="Engenharia de Software">Engenharia de Software</option> 
-              <option value ="Engenharia Elétrica">Engenharia Elétrica</option> 
-              <option value ="Engenharia Mecânica">Engenharia Mecânica</option> 
-              <option value ="Fonoaudiologia">Fonoaudiologia</option> 
-              <option value ="Gestão em Recursos Humanos">Gestão em Recursos Humanos</option> 
-              <option value ="Graduação Tecnológica em Logística">Graduação Tecnológica em Logística</option> 
-              <option value ="Licenciatura em Ciências Biológicas">Licenciatura em Ciências Biológicas</option> 
-              <option value ="Licenciatura em História">Licenciatura em História</option> 
-              <option value ="Licenciatura em Letras">Licenciatura em Letras</option> 
-              <option value ="Licenciatura em Matemática">Licenciatura em Matemática</option> 
-              <option value ="Licenciatura em Pedagogia">Licenciatura em Pedagogia</option> 
-              <option value ="Nutrição">Nutrição</option> <option value ="Psicologia">Psicologia</option> 
-              <option value ="Serviço Social">Serviço Social</option> 
-              <option value ="Sistemas de Informação">Sistemas de Informação</option> 
-              <option value ="Terapia Ocupacional">Terapia Ocupacional</option> 
-            </select>
-          </div>
-<br>
-          <button type="submit">Cadastrar</button>
-
-        </form>
-<br>
-<a href=http://127.0.0.1:8000/>
-<button type="submit">Login</button>
-</a>
-      </div>
+<header>
+    <img src="/Trabalho-Web/Lista_de_Leitura/controle/static/images/ugblogo.png" alt="Logo">
+    <div class="header-center">
+        <h1>Cantinho da Leitura</h1>
+        <h2>Organize, explore e se inspire com suas leituras.</h2>
     </div>
-  </main>
+</header>
 
-  <footer>
-    <p>&copy; 2025 - Joões & Azeitoneta | 
-       Contato: <a href="mailto:contato@cantinhodaleitura.com">contato@cantinhodaleitura.com</a>
-    </p>
-  </footer>
+<main>
+    <div class="card-container">
+        <div class="card">
+            <h2>👤 Cadastro de Usuário</h2>
+            <form method="POST">
+                {% csrf_token %}
+                <label for="matricula">Matrícula:</label>
+                <input type="text" id="matricula" name="matricula" placeholder="Digite sua matrícula" autocomplete="off">
+
+                <label for="senha">Senha:</label>
+                <input type="password" id="senha" name="senha" placeholder="Digite sua senha (5 caracteres)" autocomplete="off">
+
+                <label for="curso">Curso:</label>
+                <select id="curso" name="curso">
+                    <option value="Administração">Administração</option>
+                    <option value="Arquitetura e Urbanismo">Arquitetura e Urbanismo</option>
+                    <option value="Educação Física">Educação Física</option>
+                    <option value="Biomedicina">Biomedicina</option>
+                    <option value="Direito">Direito</option>
+                    <option value="Enfermagem">Enfermagem</option>
+                    <option value="Engenharia Civil">Engenharia Civil</option>
+                    <option value="Engenharia de Produção">Engenharia de Produção</option>
+                    <option value="Engenharia de Software">Engenharia de Software</option>
+                    <option value="Engenharia Elétrica">Engenharia Elétrica</option>
+                    <option value="Engenharia Mecânica">Engenharia Mecânica</option>
+                    <option value="Fonoaudiologia">Fonoaudiologia</option>
+                    <option value="Gestão em Recursos Humanos">Gestão em Recursos Humanos</option>
+                    <option value="Graduação Tecnológica em Logística">Graduação Tecnológica em Logística</option>
+                    <option value="Licenciatura em Ciências Biológicas">Licenciatura em Ciências Biológicas</option>
+                    <option value="Licenciatura em História">Licenciatura em História</option>
+                    <option value="Licenciatura em Letras">Licenciatura em Letras</option>
+                    <option value="Licenciatura em Matemática">Licenciatura em Matemática</option>
+                    <option value="Licenciatura em Pedagogia">Licenciatura em Pedagogia</option>
+                    <option value="Nutrição">Nutrição</option>
+                    <option value="Psicologia">Psicologia</option>
+                    <option value="Serviço Social">Serviço Social</option>
+                    <option value="Sistemas de Informação">Sistemas de Informação</option>
+                    <option value="Terapia Ocupacional">Terapia Ocupacional</option>
+                </select>
+
+                <br>
+                <button type="submit">Cadastrar</button>
+            </form>
+            <br>
+            <a href="http://127.0.0.1:8000/">
+                <button type="button">Login</button>
+            </a>
+        </div>
+    </div>
+</main>
+
+<footer>
+    © 2025 - João, João & Azeite
+</footer>
 
 </body>
 </html>
-
