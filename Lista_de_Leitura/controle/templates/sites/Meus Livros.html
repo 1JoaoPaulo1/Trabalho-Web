@@ -220,7 +220,7 @@
           <p>{{ i.livro.nome_autor }}</p>
 
           <label>Página Atual 📖</label>
-          <input type="number" name="pagina_atual" min="0" max="{{ i.livro.numero_paginas }}" value="{{ i.pagina_atual }}">
+          <input type="number" name="pagina_atual" min="0" max="9999" value="{{ i.pagina_atual }}">
 
           <label>Nota ⭐</label>
           <input type="number" name="nota" min="0" max="5" value="{{ i.nota }}">

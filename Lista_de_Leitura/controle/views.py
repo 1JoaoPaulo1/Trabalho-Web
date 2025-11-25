@@ -9,7 +9,7 @@ def login(request):
    i.logado = False
    i.save()
   valores = (request.POST)
-  if len(valores["matricula"]) == 10 and  len(valores["senha"]) == 3:
+  if len(valores["matricula"]) == 10 and  len(valores["senha"]) == 5:
    p = Pessoa.objects.filter(matricula = valores["matricula"],senha = valores["senha"])
    if len(p) == 1:
     p = Pessoa.objects.get(matricula = valores["matricula"],senha = valores["senha"])
@@ -47,7 +47,7 @@ def login(request):
 def cadastro(request):
  if request.method=="POST":
   valores = request.POST
-  if len(Pessoa.objects.filter(matricula=valores["matricula"])) == 0 and len(valores["senha"]) == 3:
+  if len(Pessoa.objects.filter(matricula=valores["matricula"])) == 0 and len(valores["senha"]) == 5:
    p = Pessoa(matricula=valores["matricula"], senha=valores["senha"],curso=valores["dropdown"])
    p.save()
    return redirect("login")
@@ -163,7 +163,7 @@ def minha_lista(request):
     valores = (request.POST)
     leitura = Leitura.objects.get(id_leitura=valores["identificar"])
     livro = Livro.objects.get(id_livro = leitura.livro.id_livro)
-    if int(valores["pagina_atual"]) >= 0 and int(valores["pagina_atual"]) <= livro.numero_paginas and int(valores["nota"])>= 0 and int(valores["nota"])<=5:
+    if int(valores["pagina_atual"]) >= 0 and int(valores["pagina_atual"]) <= 9999 and int(valores["nota"])>= 0 and int(valores["nota"])<=5:
      leitura.pagina_atual = valores["pagina_atual"]
      leitura.save()
      Ler = Leitura.objects.get(id_leitura=valores["identificar"])

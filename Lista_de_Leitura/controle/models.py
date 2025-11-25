@@ -5,7 +5,7 @@ from django.db import models
 class Pessoa(models.Model):
  id_pessoa = models.AutoField(primary_key=True)
  matricula = models.CharField(max_length=10,unique=True)
- senha = models.CharField(max_length=3)
+ senha = models.CharField(max_length=5)
  curso = models.CharField(max_length=30)
  def __str__(p):
   return f"{p.matricula}: {p.curso}"
@@ -15,7 +15,6 @@ class Livro(models.Model):
  nome_livro = models.CharField(max_length=250)
  nome_autor = models.CharField(max_length=250)
  codigo_livro = models.CharField(max_length=80, unique=True)
- numero_paginas = models.IntegerField()
 
  def __str__(l):
   return f"{l.nome_livro}"
