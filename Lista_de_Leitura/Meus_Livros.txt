@@ -1,30 +1,36 @@
-TÍTULO: Deglutição atípica
-Código: 618.9231 P124d
-Autor(es): PADOVAN, Beatriz A. E..
+TÍTULO: Paralisia cerebral linguagem e cognição
+Código: 616.855 L734p
+Autor(es): LIMONGI, Suelly Cecilia Olivan.
 Página Atual: 1
 Nota: 0 estrelas
 
-TÍTULO: Mente absorvente
-Código: 155.41 M781m
-Autor(es): MONTESSORI, Maria.
+TÍTULO: ATM diagnóstico e tratamento
+Código: 617.643 L437a
+Autor(es): LEANDRO, Luiz Fernando Lobo; NUNES, Luiz de Jesus.
 Página Atual: 1
 Nota: 0 estrelas
 
-TÍTULO: Comissão de fábrica e trabalhadores na indústria
-Código: 907.2081 R696c
-Autor(es): RODRIGUES, Iram Jácome.
+TÍTULO: Mini Dicionário Espanhol-Português/ Português-Espanhol minidicionário-escolar
+Código: R463.69 M665
+Autor(es): Ciranda Cultural, [19--]
 Página Atual: 1
 Nota: 0 estrelas
 
-TÍTULO: A aplicabilidade da lei Maria da Penha para casais homoafetivos masculinos
-Código: 364.1536 H722a
-Autor(es): HOLANDA, Marcelo José Rodrigues de Barros.
+TÍTULO: Direito processual penal Esquematizado
+Código: 345.8105 R375d
+Autor(es): REIS, Alexandre Cebrian Araújo; GONÇALVES, Victor Eduardo Rios; LENZA, Pedro.
+Página Atual: 1
+Nota: 0 estrelas
+
+TÍTULO: Audiologia Infantil princípios e metodos da avaliação da audição na criança
+Código: 618.920978 R969a 2 ed.1985
+Autor(es): RUSSO, Iêda C. Pacheco; SANTOS, Teresa M. Momensohn dos.
 Página Atual: 1
 Nota: 0 estrelas
 
 TÍTULO: O aluno de aprendizagem lenta
 Código: 370.152 K38a
 Autor(es): KEPHART, Newell C..
-Página Atual: 55
-Nota: 5 estrelas
+Página Atual: 1
+Nota: 0 estrelas
 

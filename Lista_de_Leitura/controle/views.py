@@ -48,7 +48,7 @@ def cadastro(request):
  if request.method=="POST":
   valores = request.POST
   if len(Pessoa.objects.filter(matricula=valores["matricula"])) == 0 and len(valores["senha"]) == 5:
-   p = Pessoa(matricula=valores["matricula"], senha=valores["senha"],curso=valores["dropdown"])
+   p = Pessoa(matricula=valores["matricula"], senha=valores["senha"],curso=valores["curso"])
    p.save()
    return redirect("login")
   else:
