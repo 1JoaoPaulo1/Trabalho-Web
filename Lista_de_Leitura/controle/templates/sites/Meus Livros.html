@@ -301,6 +301,12 @@ body.dark footer {
       <input type="hidden" name="identificar" value="SISTEMALOGOFF">
       <button class="header-btn" type="submit">Sair</button>
 </form>
+
+<form method="POST">
+{%csrf_token%}
+      <input type="hidden" name="identificar" value="GERARPDF">
+      <button class="header-btn" type="submit">Gerar PDF</button>
+</form>
   </div>
 </header>
 
