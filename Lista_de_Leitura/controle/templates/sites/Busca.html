@@ -131,10 +131,14 @@
       width: 280px;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       border: 2px solid #df8d13;
-      /* --- ADIÇÃO PARA ALINHAMENTO --- */
+      
+      /* Configuração Flexbox para alinhar botão */
       display: flex;
       flex-direction: column;
-      /* ------------------------------- */
+      
+      /* --- NOVO: GARANTE ALTURA MÍNIMA PARA TODOS OS CARDS --- */
+      min-height: 400px; 
+      /* -------------------------------------------------------- */
     }
 
     .cardlista:hover {
@@ -142,14 +146,12 @@
       box-shadow: 0 8px 25px rgba(0,0,0,0.2);
     }
     
-    /* --- ADIÇÃO PARA ALINHAMENTO --- */
     /* Faz o formulário ocupar todo o espaço do card e organiza o conteúdo em coluna */
     .cardlista form {
         display: flex;
         flex-direction: column;
         flex-grow: 1;
     }
-    /* ------------------------------- */
 
     .cardlista h2 { 
       margin: 10px 0; 
@@ -178,9 +180,9 @@
       font-size: 1rem;
       cursor: pointer;
       transition: background 0.3s;
-      /* --- ADIÇÃO PARA ALINHAMENTO --- */
-      margin-top: auto; /* ESSENCIAL: Empurra o botão para o fundo do container flexível (o form) */
-      /* ------------------------------- */
+      
+      /* Empurra o botão para o fundo do formulário */
+      margin-top: auto; 
     }
 
     .cardlista button:hover { 
@@ -252,6 +254,7 @@
       color: #f5f5f5; 
       border: 2px solid #df8d13; 
       box-shadow: 0 6px 20px rgba(0,0,0,0.6); 
+      min-height: 400px; /* Mantém a altura mínima no modo escuro também */
     }
 
     body.dark .cardlista h2 { 
