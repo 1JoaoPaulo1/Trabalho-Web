@@ -59,6 +59,12 @@ def cadastro(request):
 
 
 def centro(request):
+ if request.method =="POST":
+  logado = Logado.objects.all()
+  for i in logado:
+   i.logado = False
+   i.save()
+  return redirect(login)
  logado = Logado.objects.filter(logado=True)
  if len(logado) == 1:
   return render(request,"sites/Cantinho da Leitura.html")
@@ -70,6 +76,13 @@ def centro(request):
   return render(request,"sites/Login.html")  
 
 def ajuda(request):
+ if request.method =="POST":
+  logado = Logado.objects.all()
+  for i in logado:
+   i.logado = False
+   i.save()
+  return redirect(login)
+ 
  logado = Logado.objects.filter(logado=True)
  if len(logado) == 1:
   return render(request,"sites/Ajuda.html")
@@ -78,7 +91,7 @@ def ajuda(request):
   for i in logado:
    i.logado = False
    i.save()
-  return render(request,"sites/Login.html")
+  return redirect(login)
 
 
 def busca(request):
@@ -92,6 +105,12 @@ def busca(request):
 
   if request.method =="POST":
    valor = (request.POST)
+   if valor["identificar"] =="SISTEMALOGOFF":
+    logado = Logado.objects.all()
+    for i in logado:
+     i.logado = False
+     i.save()
+    return redirect(login)
    if valor["tipo"] == "busca":
     logado = Logado.objects.get(logado=True)
     livro = Livro.objects.filter(nome_livro__contains=valor["identificar"])
@@ -132,8 +151,7 @@ def busca(request):
   for i in logado:
    i.logado = False
    i.save()
-  return render(request,"sites/Login.html")
-
+   return redirect("login")
 
 
 
@@ -157,7 +175,13 @@ def minha_lista(request):
     leitura = Leitura.objects.filter(pessoa = logado.pessoa).order_by("id_leitura")
     return render(request,"sites/Meus Livros.html",{"leitura":leitura})
 
-
+  elif request.method=="POST" and request.POST["identificar"] == "SISTEMALOGOFF":
+   logado = Logado.objects.all()
+   for i in logado:
+    i.logado = False
+    i.save()
+   return redirect(login)
+   
   else:
    if request.method =="POST":
     valores = (request.POST)
@@ -195,5 +219,5 @@ def minha_lista(request):
   for i in logado:
    i.logado = False
    i.save()
-  return render(request,"sites/Login.html")
+   return redirect("login")
 

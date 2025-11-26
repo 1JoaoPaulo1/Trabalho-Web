@@ -296,7 +296,11 @@ body.dark footer {
     </div>
   <div class="header-right">
       <button class="header-btn" id="darkModeBtn">Modo Escuro</button>
-      <button class="header-btn">Sair</button>
+<form method="POST">
+{%csrf_token%}
+      <input type="hidden" name="identificar" value="SISTEMALOGOFF">
+      <button class="header-btn" type="submit">Sair</button>
+</form>
   </div>
 </header>
 
