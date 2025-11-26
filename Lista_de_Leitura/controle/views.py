@@ -165,9 +165,10 @@ def minha_lista(request):
   if request.method == "GET":
    logado = Logado.objects.get(logado=True)
    leitura = Leitura.objects.filter(pessoa = logado.pessoa).order_by("id_leitura")
+   leitura = leitura[::-1]
   
-
    return render(request,"sites/Meus Livros.html",{"leitura":leitura})
+  
   elif request.method=="POST" and request.POST["identificar"] == "remover":
     a = Leitura.objects.get(id_leitura =int(request.POST["remover"]))
     a.delete()
@@ -181,7 +182,26 @@ def minha_lista(request):
     i.logado = False
     i.save()
    return redirect(login)
-   
+
+  elif request.method=="POST" and request.POST["identificar"] == "GERARPDF":
+   logado = Logado.objects.get(logado=True)
+   leitura = Leitura.objects.filter(pessoa = logado.pessoa).order_by("id_leitura")
+   leitura = leitura[::-1]
+   x = open("Meus_Livros.txt","w",encoding="utf8")
+   x.write("")
+   x.close()
+   x = open("Meus_Livros.txt","a",encoding="utf8")
+   for i in leitura:
+    x.write(f"TÍTULO: {i.livro.nome_livro}\n")
+    x.write(f"Código: {i.livro.codigo_livro}\n")
+    x.write(f"Autor(es): {i.livro.nome_autor}\n")
+    x.write(f"Página Atual: {i.pagina_atual}\n")
+    x.write(f"Nota: {i.nota} estrelas\n")
+    x.write("\n")
+   x.close()
+   return render(request,"sites/Meus Livros.html",{"leitura":leitura})
+
+    
   else:
    if request.method =="POST":
     valores = (request.POST)
