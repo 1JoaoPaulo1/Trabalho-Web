@@ -16,15 +16,15 @@
       min-height: 100vh; 
       display: flex; 
       flex-direction: column; 
+      align-items: center;     /* ALINHA TUDO EM UMA COLUNA */
       transition: background 0.3s ease, color 0.3s ease;
     }
 
-    a { text-decoration: none; color: inherit; }
-
     header {
+      width: 100%; 
       display: flex;
+      flex-direction: column;
       align-items: center;
-      justify-content: center;
       padding: 1.5rem;
       background: #ffffff;
       border-bottom: 3px solid #df8d13;
@@ -33,25 +33,28 @@
     }
 
     header img { 
-      position: absolute; 
-      left: 25px; 
       height: 60px; 
+      margin-bottom: 10px;
     }
 
     header h1 { 
       color: rgb(58, 65, 128); 
       font-size: 2rem; 
       font-weight: 600; 
+      text-align: center;
     }
 
     header h2 {
-    margin-bottom: 10px;
-    font-size: 1.2rem;
-    color: #e08f16;
+      margin-top: 10px;
+      font-size: 1.2rem;
+      color: #e08f16;
+      text-align: center;
     }
+
     .header-right { 
       position: absolute; 
       right: 25px; 
+      top: 25px;
       display: flex; 
       gap: 12px; 
     }
@@ -71,12 +74,14 @@
       background: rgb(223,146,31); 
     }
 
+    /* CENTRALIZA TUDO */
     .search-form {
       display: flex;
-      justify-content: center;
-      gap: 10px;
+      flex-direction: column;   /* UM ABAIXO DO OUTRO */
+      align-items: center;
+      gap: 15px;
       margin: 30px auto;
-      flex-wrap: wrap;
+      width: 100%;
     }
 
     .search-form input {
@@ -84,14 +89,9 @@
       font-size: 1rem;
       border: 2px solid #df8d13;
       border-radius: 8px;
-      min-width: 250px;
+      width: 300px;
       transition: 0.3s;
-    }
-
-    .search-form input:focus {
-      border-color: #df8d13;
-      outline: none;
-      box-shadow: 0 0 6px rgba(223,146,31,0.4);
+      text-align: center;
     }
 
     .reset-btn {
@@ -105,21 +105,14 @@
       transition: 0.3s ease;
     }
 
-    .reset-btn:hover {
-      background: darkred;
-      transform: scale(1.05);
-      box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
-    }
-
     main {
-      flex: 1;
-      max-width: 1200px;
-      margin: 0 auto 40px;
-      padding: 20px;
+      width: 100%;
+      max-width: 500px;      /* CARDS CENTRALIZADOS E ESTREITOS */
       display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      gap: 25px;
+      margin-bottom: 40px;
     }
 
     .cardlista {
@@ -127,69 +120,23 @@
       padding: 20px;
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      text-align: center;
-      width: 280px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      width: 100%; 
+      max-width: 450px;
       border: 2px solid #df8d13;
-    }
-
-    .cardlista:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-    }
-
-    .cardlista h2 { 
-      margin: 10px 0; 
-      color: rgb(58, 65, 128); 
-    }
-
-    .cardlista label { 
-      display: block; 
-      font-weight: bold; 
-      margin: 10px 0 5px; 
-      text-align: left; 
-    }
-
-    .cardlista p { 
-      margin-bottom: 10px; 
-      color: #555; 
-    }
-
-    .cardlista button {
-      width: 100%;
-      padding: 10px;
-      background: rgb(58, 65, 128);
-      color: #fff;
-      border: none;
-      border-radius: 8px;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-
-    .cardlista button:hover { 
-      background: rgb(223, 146, 31); 
+      text-align: center;
     }
 
     .btn-retornar {
-      display: inline-block;
+      display: block;
+      width: 250px;
       padding: 12px 25px;
-      margin: 20px auto;
+      margin: 10px auto;
       background-color: #df8d13;
       color: #fff;
       font-weight: bold;
-      border: none;
       border-radius: 8px;
-      cursor: pointer;
       text-align: center;
-      font-size: 1rem;
       transition: 0.3s ease;
-    }
-
-    .btn-retornar:hover {
-      background-color: #c77a0d;
-      transform: scale(1.05);
-      box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
     }
 
     footer {
@@ -198,67 +145,8 @@
       text-align: center;
       padding: 20px;
       border-top: 4px solid #df8d13;
-    }
-
-    footer a { 
-      color: #4dabf7; 
-      text-decoration: none; 
-    }
-
-    footer a:hover { 
-      text-decoration: underline; 
-    }
-
-    /* --------------------------------------------------- modo escuro --------------------------------------------------- */
-
-    body.dark { 
-      background: #0a1f61; 
-      color: #f5f5f5; 
-    }
-
-    body.dark header { 
-      background: #1f2a50; 
-      box-shadow: 0 2px 8px rgba(0,0,0,0.5); 
-    }
-
-    body.dark header h1 { 
-      color: #f5f5f5; 
-    }
-
-    body.dark .search-form input { 
-      background: #2d3264; 
-      border: 1px solid #df8d13; 
-      color: #f5f5f5; 
-    }
-
-    body.dark .cardlista { 
-      background: #1e2b4d; 
-      color: #f5f5f5; 
-      border: 2px solid #df8d13; 
-      box-shadow: 0 6px 20px rgba(0,0,0,0.6); 
-    }
-
-    body.dark .cardlista h2 { 
-      color: #f5f5f5; 
-    }
-
-    body.dark .cardlista label, body.dark .cardlista p { 
-      color: #e0e0e0; 
-    }
-
-    body.dark .reset-btn, body.dark .btn-retornar { 
-      background-color: #df8d13; 
-      color: #f5f5f5; 
-    }
-
-    body.dark .reset-btn:hover, body.dark .btn-retornar:hover { 
-      background-color: #c77a0d; 
-    }
-
-    body.dark footer { 
-      background: #111; 
-      color: #f5f5f5; 
-      border-top: 2px solid #df8d13; 
+      width: 100%;
+      margin-top: 20px;
     }
 
   </style>
@@ -266,22 +154,23 @@
 <body id="topo">
 
 <header>
-    <img src="/static/images/ugblogo.png" height="60px">
-     <div class="header-center">
-        <h1>Cantinho da Leitura</h1>
-        <h2>Aqui você encontra ainda mais livros para elevar seus estudos ao próximo nível.</h2>
-    </div>
+    <img src="/static/images/ugblogo.png">
+    <h1>Cantinho da Leitura</h1>
+    <h2>Aqui você encontra ainda mais livros para elevar seus estudos.</h2>
+
     <div class="header-right">
         <button class="header-btn" id="darkModeBtn">Modo Escuro</button>
-<form method="POST">
-{%csrf_token%}
-      <input type="hidden" name="identificar" value="SISTEMALOGOFF">
-      <button class="header-btn" type="submit">Sair</button>
-</form>
+
+        <form method="POST">
+          {%csrf_token%}
+          <input type="hidden" name="identificar" value="SISTEMALOGOFF">
+          <button class="header-btn" type="submit">Sair</button>
+        </form>
     </div>
 </header>
 
-<h2 style="text-align: center; margin: 20px 0; color:white;">🔍 Barra de Pesquisa</h2>
+<h2 style="margin-top: 20px; color:white;">🔍 Barra de Pesquisa</h2>
+
 <form method="POST" class="search-form">
   {% csrf_token %}
   <input type="hidden" name="tipo" value="busca">
