@@ -45,11 +45,10 @@
     }
 
     header h2 {
-      margin-bottom: 10px;
-      font-size: 1.2rem;
-      color: #e08f16;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    color: #e08f16;
     }
-
     .header-right { 
       position: absolute; 
       right: 25px; 
@@ -112,18 +111,15 @@
       box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
     }
 
-    /* ---------- ALINHAMENTO DOS CARDS ---------- */
-
     main {
       flex: 1;
       max-width: 1200px;
       margin: 0 auto 40px;
       padding: 20px;
-
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      display: flex;
+      flex-wrap: wrap;
       gap: 20px;
-      justify-items: center;
+      justify-content: center;
     }
 
     .cardlista {
@@ -135,12 +131,25 @@
       width: 280px;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       border: 2px solid #df8d13;
+      /* --- ADIÇÃO PARA ALINHAMENTO --- */
+      display: flex;
+      flex-direction: column;
+      /* ------------------------------- */
     }
 
     .cardlista:hover {
       transform: translateY(-5px);
       box-shadow: 0 8px 25px rgba(0,0,0,0.2);
     }
+    
+    /* --- ADIÇÃO PARA ALINHAMENTO --- */
+    /* Faz o formulário ocupar todo o espaço do card e organiza o conteúdo em coluna */
+    .cardlista form {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+    }
+    /* ------------------------------- */
 
     .cardlista h2 { 
       margin: 10px 0; 
@@ -169,6 +178,9 @@
       font-size: 1rem;
       cursor: pointer;
       transition: background 0.3s;
+      /* --- ADIÇÃO PARA ALINHAMENTO --- */
+      margin-top: auto; /* ESSENCIAL: Empurra o botão para o fundo do container flexível (o form) */
+      /* ------------------------------- */
     }
 
     .cardlista button:hover { 
@@ -213,15 +225,27 @@
       text-decoration: underline; 
     }
 
-    /* --------------------- MODO ESCURO --------------------- */
+    /* --------------------------------------------------- modo escuro --------------------------------------------------- */
 
-    body.dark { background: #0a1f61; color: #f5f5f5; }
+    body.dark { 
+      background: #0a1f61; 
+      color: #f5f5f5; 
+    }
 
-    body.dark header { background: #1f2a50; box-shadow: 0 2px 8px rgba(0,0,0,0.5); }
+    body.dark header { 
+      background: #1f2a50; 
+      box-shadow: 0 2px 8px rgba(0,0,0,0.5); 
+    }
 
-    body.dark header h1 { color: #f5f5f5; }
+    body.dark header h1 { 
+      color: #f5f5f5; 
+    }
 
-    body.dark .search-form input { background: #2d3264; border: 1px solid #df8d13; color: #f5f5f5; }
+    body.dark .search-form input { 
+      background: #2d3264; 
+      border: 1px solid #df8d13; 
+      color: #f5f5f5; 
+    }
 
     body.dark .cardlista { 
       background: #1e2b4d; 
@@ -230,7 +254,28 @@
       box-shadow: 0 6px 20px rgba(0,0,0,0.6); 
     }
 
-    body.dark footer { background: #111; color: #f5f5f5; border-top: 2px solid #df8d13; }
+    body.dark .cardlista h2 { 
+      color: #f5f5f5; 
+    }
+
+    body.dark .cardlista label, body.dark .cardlista p { 
+      color: #e0e0e0; 
+    }
+
+    body.dark .reset-btn, body.dark .btn-retornar { 
+      background-color: #df8d13; 
+      color: #f5f5f5; 
+    }
+
+    body.dark .reset-btn:hover, body.dark .btn-retornar:hover { 
+      background-color: #c77a0d; 
+    }
+
+    body.dark footer { 
+      background: #111; 
+      color: #f5f5f5; 
+      border-top: 2px solid #df8d13; 
+    }
 
   </style>
 </head>
@@ -244,18 +289,15 @@
     </div>
     <div class="header-right">
         <button class="header-btn" id="darkModeBtn">Modo Escuro</button>
-
-        <form method="POST">
-          {%csrf_token%}
-          <input type="hidden" name="identificar" value="SISTEMALOGOFF">
-          <button class="header-btn" type="submit">Sair</button>
-        </form>
-
+<form method="POST">
+{%csrf_token%}
+      <input type="hidden" name="identificar" value="SISTEMALOGOFF">
+      <button class="header-btn" type="submit">Sair</button>
+</form>
     </div>
 </header>
 
 <h2 style="text-align: center; margin: 20px 0; color:white;">🔍 Barra de Pesquisa</h2>
-
 <form method="POST" class="search-form">
   {% csrf_token %}
   <input type="hidden" name="tipo" value="busca">
@@ -268,7 +310,6 @@
   <div class="cardlista">
     <form method="POST">
       {% csrf_token %}
-
       <label>Nome do Livro 📘</label>
       <h2>{{ i.nome_livro }}</h2>
 
@@ -281,7 +322,6 @@
       <input type="hidden" name="tipo" value="adicionar">
       <input type="hidden" name="identificar" value="{{ i.id_livro }}">
       <button type="submit">💾 Adicionar a Meus Livros</button>
-
     </form>
   </div>
   {% endfor %}
@@ -291,12 +331,13 @@
 <a href="http://127.0.0.1:8000/Cantinho_da_Leitura/" class="btn-retornar">Retornar</a>
 
 <footer>
-  <p>&copy; 2025 - Joões & Azeitoneta | 
+  <p>© 2025 - Joões & Azeitoneta | 
      Contato: <a href="mailto:contato@cantinhodaleitura.com">contato@cantinhodaleitura.com</a>
   </p>
 </footer>
 
 <script>
+  // Modo Escuro
   const darkBtn = document.querySelector("#darkModeBtn");
   darkBtn.addEventListener("click", () => {
     document.body.classList.toggle("dark");
