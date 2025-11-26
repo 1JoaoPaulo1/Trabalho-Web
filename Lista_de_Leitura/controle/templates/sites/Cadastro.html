@@ -9,6 +9,8 @@
 
 <style>
 
+/* --------------------------------------------------------- MODO CLARO --------------------------------------------------------- */
+
 * {
     margin: 0;
     padding: 0;
@@ -21,6 +23,7 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    transition: background 0.3s ease, color 0.3s ease;
 }
 
 header {
@@ -51,6 +54,29 @@ header h2 {
     font-size: 1.2rem;
     color: #e08f16;
 }
+
+.header-right {
+    position: absolute;
+    right: 25px;
+    display: flex;
+    gap: 12px;
+}
+
+.header-btn {
+    padding: 8px 14px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    background: #fff;
+    cursor: pointer;
+    font-weight: 500;
+    transition: 0.2s ease;
+    text-decoration: none;
+}
+
+.header-btn:hover {
+    background: rgb(223, 146, 31);
+}
+
 main {
     flex: 1;
     display: flex;
@@ -103,7 +129,7 @@ button {
     width: 100%;
     padding: 12px;
     background: rgb(58, 65, 128);
-    color: #fff;
+    color: rgb(223, 146, 31);
     border: none;
     border-radius: 10px;
     font-size: 1.1rem;
@@ -122,26 +148,73 @@ footer {
     text-align: center;
     padding: 20px;
     margin-top: auto;
+    border-top: 4px solid #df8d13;
+}
+
+/* --------------------------------------------------------- MODO ESCURO --------------------------------------------------------- */
+
+body.dark {
+    background: #0a1f61;
+    color: #f5f5f5;
+}
+
+body.dark header {
+    background: #1f2a50;
+    border-bottom: 3px solid #df8d13;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+}
+
+body.dark header h1 {
+    color: #f5f5f5;
+}
+
+body.dark header h2 {
+    color: #f0c568;
+}
+
+body.dark .card {
+    background: #1e2b4d;
+    color: #f5f5f5;
+}
+
+body.dark .card h2,
+body.dark .card label {
+    color: #df8d13; /* laranja igual ao restante do site */
+}
+
+body.dark input,
+body.dark select {
+    background: #2a2a2a;
+    color: white;
+    border: 1px solid #555;
+}
+
+body.dark button {
+    background: #333;
+}
+
+body.dark footer {
+    background: #111;
+    color: #f5f5f5;
     border-top: 2px solid #df8d13;
 }
 
-footer a {
-    color: #4dabf7;
-    text-decoration: none;
-}
 
-footer a:hover {
-    text-decoration: underline;
-}
 </style>
 </head>
 <body>
 
 <header>
     <img src="/static/images/ugblogo.png" alt="Logo">
+
     <div class="header-center">
         <h1>Cantinho da Leitura</h1>
         <h2>Organize, explore e se inspire com suas leituras.</h2>
+    </div>
+
+    <div class="header-right">
+        <button class="header-btn" id="darkModeBtn">Modo Escuro</button>
+        <a class="header-btn" href="/">Login</a>
     </div>
 </header>
 
@@ -149,6 +222,7 @@ footer a:hover {
     <div class="card-container">
         <div class="card">
             <h2>👤 Cadastro de Usuário</h2>
+
             <form method="POST">
                 {% csrf_token %}
                 <label for="matricula">Matrícula:</label>
@@ -188,10 +262,6 @@ footer a:hover {
                 <br>
                 <button type="submit">Cadastrar</button>
             </form>
-            <br>
-            <a href="http://127.0.0.1:8000/">
-                <button type="button">Login</button>
-            </a>
         </div>
     </div>
 </main>
@@ -199,6 +269,28 @@ footer a:hover {
 <footer>
     © 2025 - João, João & Azeite
 </footer>
+
+<!-------------------------------------------------- JS para o funcionamento do Modo Escuro -------------------------------------------------->
+<script>
+    // Verifica se o modo escuro estava ativado anteriormente
+    if (localStorage.getItem("darkMode") === "enabled") {
+        document.body.classList.add("dark");
+    }
+
+    const darkBtn = document.querySelector("#darkModeBtn");
+
+    darkBtn.addEventListener("click", () => {
+        // Alterna o modo escuro no body
+        document.body.classList.toggle("dark");
+
+        // Verifica e salva no localStorage
+        if (document.body.classList.contains("dark")) {
+            localStorage.setItem("darkMode", "enabled");
+        } else {
+            localStorage.setItem("darkMode", "disabled");
+        }
+    });
+</script>
 
 </body>
 </html>

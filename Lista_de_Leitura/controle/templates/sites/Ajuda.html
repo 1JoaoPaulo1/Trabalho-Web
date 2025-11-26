@@ -215,7 +215,7 @@
   <img src="/static/images/ugblogo.png">
   <div class="header-center">
         <h1>Cantinho da Leitura</h1>
-        <h2>Organize, explore e se inspire com suas leituras.</h2>
+        <h2> Se esta página não ajudar, talvez seja hora de estudar um pouco mais…</h2>
     </div>
   <div class="header-right">
     <button class="header-btn" id="darkModeBtn">Modo Escuro</button>
@@ -242,8 +242,6 @@
       <h2>📚 Meus Livros</h2>
       <p>Nesta página você pode:</p>
       <ul>
-        <li>Cadastrar um novo livro clicando no botão "Adicionar Livro".</li>
-        <li>Informar <strong>nome</strong>, <strong>autor</strong>, <strong>página atual</strong>, <strong>nota</strong> e marcar se já foi <strong>concluído</strong>.</li>
         <li>Visualizar todos os livros que você adicionou e acompanhar seu progresso.</li>
         <li>Adicionar novos livros e remover livros que foram lidos por completo, caso desejar.</li>
       </ul>
@@ -251,28 +249,41 @@
 
     <div class="card">
       <h2>🔍 Busca Personalizada</h2>
-      <p>Nesta página você pode:</p>
+      <p>Aqui você pode encontrar qualquer livro do nosso catálogo. Para usar a busca:</p>
       <ul>
-        <li>Digitar o nome do livro no campo de busca.</li>
-        <li>Aperte enter para ver os resultados.</li>
+        <li>Digite o nome do livro no campo de busca.</li>
+        <li>Pressione <strong>Enter</strong> para ver os resultados instantaneamente.</li>
       </ul>
-    </div>
   </div>
 </main>
 
 <a href="http://127.0.0.1:8000/Cantinho_da_Leitura/" class="btn-retornar">Retornar</a>
 
 <footer>
-  <p>&copy; 2025 - Joões & Azeitoneta | 
-     Contato: <a href="mailto:contato@cantinhodaleitura.com">contato@cantinhodaleitura.com</a>
-  </p>
+    © 2025 - João, João & Azeite
 </footer>
 
+<!-------------------------------------------------- JS para o funcionamento do Modo Escuro -------------------------------------------------->
 <script>
-  const darkBtn = document.querySelector("#darkModeBtn");
-  darkBtn.addEventListener("click", () => {
+    // Verifica se o modo escuro estava ativado anteriormente
+    if (localStorage.getItem("darkMode") === "enabled") {
+        document.body.classList.add("dark");
+    }
+    const darkBtn = document.querySelector("#darkModeBtn");
+
+darkBtn.addEventListener("click", () => {
+
+    // Alterna o modo escuro no body
     document.body.classList.toggle("dark");
-  });
+
+    // Verifica e salva no localStorage
+    if (document.body.classList.contains("dark")) {
+        localStorage.setItem("darkMode", "enabled");
+    } else {
+        localStorage.setItem("darkMode", "disabled");
+    }
+});
+
 </script>
 
 </body>
