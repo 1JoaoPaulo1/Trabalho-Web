@@ -1,8 +1,8 @@
-TÍTULO: O aluno de aprendizagem lenta
-Código: 370.152 K38a
-Autor(es): KEPHART, Newell C..
-Página Atual: 55
-Nota: 5 estrelas
+TÍTULO: Deglutição atípica
+Código: 618.9231 P124d
+Autor(es): PADOVAN, Beatriz A. E..
+Página Atual: 1
+Nota: 0 estrelas
 
 TÍTULO: Mente absorvente
 Código: 155.41 M781m
@@ -10,9 +10,21 @@ Autor(es): MONTESSORI, Maria.
 Página Atual: 1
 Nota: 0 estrelas
 
-TÍTULO: Audiologia Infantil princípios e metodos da avaliação da audição na criança
-Código: 618.920978 R969a 2 ed.1985
-Autor(es): RUSSO, Iêda C. Pacheco; SANTOS, Teresa M. Momensohn dos.
+TÍTULO: Comissão de fábrica e trabalhadores na indústria
+Código: 907.2081 R696c
+Autor(es): RODRIGUES, Iram Jácome.
 Página Atual: 1
 Nota: 0 estrelas
+
+TÍTULO: A aplicabilidade da lei Maria da Penha para casais homoafetivos masculinos
+Código: 364.1536 H722a
+Autor(es): HOLANDA, Marcelo José Rodrigues de Barros.
+Página Atual: 1
+Nota: 0 estrelas
+
+TÍTULO: O aluno de aprendizagem lenta
+Código: 370.152 K38a
+Autor(es): KEPHART, Newell C..
+Página Atual: 55
+Nota: 5 estrelas
 
