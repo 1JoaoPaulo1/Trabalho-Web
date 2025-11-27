@@ -23,7 +23,7 @@ O sistema é composto pelas seguintes páginas principais:
 
 ---
 
-1. Login (`login.html`)**
+1. Login ('Login.html')**
 
 - Página inicial de acesso ao sistema.  
 - Permite ao usuário inserir matrícula e senha para entrar no Cantinho da Leitura.  
@@ -31,52 +31,52 @@ O sistema é composto pelas seguintes páginas principais:
 
 ---
 
-2. Cadastro (`cadastro.html`)**
+2. Cadastro ('Cadastro.html')**
 
 - Utilizada para criar uma nova conta de usuário.  
-- Solicita matrícula e senha.  
+- Solicita matrícula, senha e curso.  
 - Após o cadastro, o usuário é redirecionado automaticamente ao login.
 
 ---
 
-3. Página Principal — Cantinho da Leitura (`index.html`)**
+3. Página Principal — Cantinho da Leitura ('Cantinho da Leitura.html')**
 
 - É o coração do site.
 - Centraliza o acesso para todas as outras páginas do sistema.
 
 ---
 
-4. Meus Livros (`meuslivros.html`)**
+4. Meus Livros ('Meus Livros.html')**
 
 Página dedicada ao gerenciamento pessoal de leitura.
 
+- Realiza Filtragem por título ou autor  
+
 Permite visualizar:
 
-- Livros em andamento  
-- Livros concluídos  
-- Progresso de leitura  
+- Livros adicionados
+- Página Atual
+- Nota Pessoal (0-5) 
 - Possibilidade de edição e remoção  
 
 ---
 
-5. Busca (`busca.html`)**
+5. Busca ('Busca.html')**
 
 Ferramenta interna para localizar livros da biblioteca rapidamente.
 
 - Campo de busca simples e responsivo  
-- Filtragem por título ou autor  
-- Resultados exibidos dinamicamente  
+- Filtragem por título 
 
 ---
 
-6. Ajuda (`ajuda.html`)**
+6. Ajuda ('Ajuda.html')**
 
 Página destinada à orientação do usuário.
 
 Contem:
  
 - Guia rápido de uso  
-- Informações de contato
 
 Ideal para novos usuários.
 
@@ -101,7 +101,6 @@ Essa estrutura facilita:
 - **HTML5** — estrutura  
 - **CSS3** — estilização e tema escuro  
 - **JavaScript** — alternância de tema, interações e filtros  
-- **Git/GitHub** — versionamento do código  
 
 ---
 
