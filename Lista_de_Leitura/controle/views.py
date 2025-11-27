@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from .models import Pessoa,Livro,Leitura,Logado
-
+from fpdf import FPDF
+import os
 # Create your views here.
 def login(request):
  if request.method=="POST":
@@ -187,18 +188,48 @@ def minha_lista(request):
    logado = Logado.objects.get(logado=True)
    leitura = Leitura.objects.filter(pessoa = logado.pessoa).order_by("id_leitura")
    leitura = leitura[::-1]
-   x = open("Meus_Livros.txt","w",encoding="utf8")
-   x.write("")
-   x.close()
-   x = open("Meus_Livros.txt","a",encoding="utf8")
+   pdf = FPDF()
+   pdf.add_page()
+   pdf.set_font("Arial", size = 11)
+   linha = 1
    for i in leitura:
-    x.write(f"TÍTULO: {i.livro.nome_livro}\n")
-    x.write(f"Código: {i.livro.codigo_livro}\n")
-    x.write(f"Autor(es): {i.livro.nome_autor}\n")
-    x.write(f"Página Atual: {i.pagina_atual}\n")
-    x.write(f"Nota: {i.nota} estrelas\n")
-    x.write("\n")
-   x.close()
+    txt1 =f"{i.livro.nome_livro}"
+    pdf.cell(200,5,txt ="TÍTULO:",ln = linha, align = 'C')
+    linha = linha + 1
+    if len(f"{i.livro.nome_livro}") <=92:
+     txt1 = f"{i.livro.nome_livro}"
+     pdf.cell(200,5,txt = txt1,ln = linha, align = 'C')
+     linha = linha + 1
+    else:
+     txt2 = txt1.split(" ")
+     txt4 =""
+     for a in txt2:
+      if len(txt4 + a) <91:
+       txt4 = txt4 +" "
+       txt4 = txt4 +a
+      else:
+       pdf.cell(200,5,txt = txt4,ln = linha, align = 'C')
+       linha = linha + 1       
+       txt4 = a
+    
+     pdf.cell(200,5,txt = txt4,ln = linha, align = 'C')
+  
+    txt1 =  f"Código: {i.livro.codigo_livro}\n"
+    pdf.cell(200,5,txt = txt1,ln = linha, align = 'C')
+    linha = linha + 1    
+    txt1 =  f"Autor(es): {i.livro.nome_autor}\n"
+    pdf.cell(200,5,txt = txt1,ln = linha, align = 'C')
+    linha = linha + 1  
+    txt1 = f"Página Atual: {i.pagina_atual}\n"
+    pdf.cell(200,5,txt = txt1,ln = linha, align = 'C')
+    linha = linha + 1  
+    txt1 = f"Nota: {i.nota} estrelas\n"
+    pdf.cell(200,5,txt = txt1,ln = linha, align = 'C')
+    linha = linha + 1
+    pdf.cell(200,20,txt = " ",ln = linha, align = 'C')
+    
+   pdf.output("Meus_Livros.pdf")
+   os.system("start Meus_Livros.pdf")
    return render(request,"sites/Meus Livros.html",{"leitura":leitura})
 
     
