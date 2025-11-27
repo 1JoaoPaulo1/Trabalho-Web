@@ -220,12 +220,29 @@ def minha_lista(request):
        txt4 = a
     
      pdf.cell(200,5,txt = txt4,ln = linha, align = 'C')
-  
+    linha = linha + 1    
     txt1 =  f"Código: {i.livro.codigo_livro}\n"
     pdf.cell(200,5,txt = txt1,ln = linha, align = 'C')
-    linha = linha + 1    
-    txt1 =  f"Autor(es): {i.livro.nome_autor}\n"
-    pdf.cell(200,5,txt = txt1,ln = linha, align = 'C')
+    linha = linha + 1
+    txt1 = f"Autor(es): {i.livro.nome_autor}\n"
+    if len(f"Autor(es): {i.livro.nome_autor}\n") <=92:
+     txt1 = f"Autor(es): {i.livro.nome_autor}\n"
+     pdf.cell(200,5,txt = txt1,ln = linha, align = 'C')
+     linha = linha + 1
+    else:
+     txt2 = txt1.split(",")
+     txt4 =""
+     for a in txt2:
+      if len(txt4 + a) <91:
+       txt4 = txt4 +","
+       txt4 = txt4 +a
+      else:
+       pdf.cell(200,5,txt = txt4,ln = linha, align = 'C')
+       linha = linha + 1       
+       txt4 = a
+    
+     pdf.cell(200,5,txt = txt4,ln = linha, align = 'C')
+  
     linha = linha + 1  
     txt1 = f"Página Atual: {i.pagina_atual}\n"
     pdf.cell(200,5,txt = txt1,ln = linha, align = 'C')
