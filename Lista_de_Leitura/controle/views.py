@@ -56,6 +56,13 @@ def cadastro(request):
    return render(request,"sites/Cadastro.html")
    
  else:
+  #x = open("Registros_4.txt","r",encoding="utf8")
+  #registros = x.read()
+  #x.close()
+  #registros = eval(registros)
+  #for i in registros['Livros']:
+   #L = Livro(nome_livro= i['Nome'],codigo_livro= i['Codigo'],nome_autor= i['Autor'])
+   #L.save()
   return render(request,"sites/Cadastro.html")
 
 
