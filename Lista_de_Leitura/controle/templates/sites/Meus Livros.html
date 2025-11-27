@@ -101,7 +101,6 @@ main {
   width: 100%;
   display: flex;
   justify-content: center;
-  position: sticky;
   top: 80px; /* altura do header */
   background: #677fc9; /* mesma cor do body */
   padding: 15px 0;
@@ -353,11 +352,12 @@ body.dark footer {
   </div>
 </header>
 
-<main>
-  <div class="search-container">
-    <input type="text" id="searchInput" placeholder="🔎 Buscar por livro ou autor...">
-  </div>
 
+<div class="search-container">
+    <input type="text" id="searchInput" placeholder="🔎 Buscar por livro ou autor...">
+</div>
+
+<main>
   {% for i in leitura %}
   <div class="cardlista">
       <form method="POST">
